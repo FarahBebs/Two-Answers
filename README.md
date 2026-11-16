@@ -5,7 +5,7 @@
 
 **Project title:** Two Answers: Category and Group Labels for Brain, Breast, Skin, and Lung Images
 
-**Repository:** https://github.com/FarahBebs/Deep-Learning-Homework-2
+**Repository:** https://github.com/FarahBebs/Two-Answers
 
 Each uploaded image is scored by two ResNet18 models for that image type.
 

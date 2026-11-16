@@ -6,7 +6,7 @@ Model choice uses validation macro-F1. Test numbers are from the restored best e
 | Field | Response |
 |---|---|
 | Project Title | Two Answers: Category and Group Labels for Brain, Breast, Skin, and Lung Images |
-| Repository | https://github.com/FarahBebs/Deep-Learning-Homework-2 |
+| Repository | https://github.com/FarahBebs/Two-Answers |
 | Problem / Task | Image classification, with one model per image type |
 | Deployment Technology | Gradio |
 | Training Environment | Python 3.13.2, PyTorch 2.15.0, torchvision 0.29.2, device mps, Mac14,10, 16 GB RAM |

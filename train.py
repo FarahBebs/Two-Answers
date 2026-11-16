@@ -352,7 +352,7 @@ def write_assignment_fields(task_results, env, path: Path) -> None:
         "| Field | Response |",
         "|---|---|",
         "| Project Title | Two Answers: Category and Group Labels for Brain, Breast, Skin, and Lung Images |",
-        "| Repository | https://github.com/FarahBebs/Deep-Learning-Homework-2 |",
+        "| Repository | https://github.com/FarahBebs/Two-Answers |",
         "| Problem / Task | Image classification, with one model per image type |",
         "| Deployment Technology | Gradio |",
         f"| Training Environment | {env_text} |",
