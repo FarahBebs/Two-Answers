@@ -7,3 +7,4 @@ data/
 phone_photos/*
 !phone_photos/labels.csv
 !phone_photos/.gitkeep
+!phone_photos/myMRI.pdf

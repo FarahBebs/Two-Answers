@@ -424,8 +424,10 @@ def build():
 
     story.append(P("8. Real images", "H1"))
     story.append(note_box(
-        "<b>Note for the teacher.</b> These are my real MRI pictures. They were taken by an MRI machine, not with a phone. "
+        "<b>Note for the teacher.</b> My real MRI pictures are in phone_photos/myMRI.pdf. "
+        "They were taken by an MRI machine, not with a phone. "
         "This is a medical project, so a phone photo of a person, a room, or a screen would not be a fair test. "
+        "The file is in the repository: https://github.com/FarahBebs/Two-Answers/blob/main/phone_photos/myMRI.pdf. "
         "I kept the same five brain images below, with the true label next to the model’s prediction. "
         "This is not a diagnosis."
     ))
@@ -601,7 +603,7 @@ def build():
         "79% skin accuracy still leaves melanoma precision at 48%. That is not a screening result.",
         "BreakHis subtype accuracy is 60% on a patient split. The 92% benign-versus-malignant number is the one that holds across patients.",
         "The lung scores use an image split. They are not a patient-level result, and they are not nodule detection.",
-        "The brain pictures are my real MRI images. They were taken by an MRI machine, not with a phone. The breast, skin, and lung figures are still public test images.",
+        "My real MRI pictures are in phone_photos/myMRI.pdf. They were taken by an MRI machine, not with a phone. The breast, skin, and lung figures are still public test images.",
     ]))
 
     doc = SimpleDocTemplate(

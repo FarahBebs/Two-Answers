@@ -476,10 +476,13 @@ are held-out public images, one per category, so the page can be tried before an
 
 ## Phone photos
 
-Note for the teacher. These are my real MRI pictures. They were taken by an MRI machine, not with a phone.
-This is a medical project, so a phone photo would not be a fair test. I kept the same five brain images in
-the report, with the true label next to the prediction. This is not a diagnosis. Breast, skin, and lung
-figures are held-out images from the public test sets, because I do not have my own slides or CT scans.
+Note for the teacher. My real MRI pictures are in `phone_photos/myMRI.pdf`. They were taken by an MRI
+machine, not with a phone. This is a medical project, so a phone photo would not be a fair test. The file
+is in the repository so you can open it:
+https://github.com/FarahBebs/Two-Answers/blob/main/phone_photos/myMRI.pdf.
+I kept the same five brain images in the report, with the true label next to the prediction. This is not a
+diagnosis. Breast, skin, and lung figures are held-out images from the public test sets, because I do not
+have my own slides or CT scans.
 
 The scoring script, if I add more files later, is:
 
