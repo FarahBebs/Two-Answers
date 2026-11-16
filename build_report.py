@@ -149,7 +149,7 @@ def grid(headers, rows, col_widths):
 def mri_figure_for_report() -> Path:
     """Cover the old chart title so it does not contradict the teacher note."""
     src = RES / "brain_five_heldout.png"
-    dest = ROOT / "report_screenshots" / "_brain_mri_photos.png"
+    dest = ROOT / "data" / "_brain_mri_photos.png"
     dest.parent.mkdir(exist_ok=True)
     im = PILImage.open(src).convert("RGB")
     drawing = ImageDraw.Draw(im)
