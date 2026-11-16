@@ -1,0 +1,244 @@
+{
+  "task": "skin",
+  "config": "frozen",
+  "hyperparameters": {
+    "configuration": "frozen",
+    "architecture": "ResNet18 pretrained on ImageNet; convolutional backbone frozen; new dropout + linear head trained",
+    "input_size": 224,
+    "batch_size": 32,
+    "max_epochs": 6,
+    "early_stopping_patience": 3,
+    "early_stopping_min_delta_macro_f1": 0.001,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "dropout": 0.3,
+    "optimizer": "AdamW",
+    "scheduler": "cosine decay from the initial learning rate to 1e-6",
+    "loss": "class-weighted cross-entropy (weights average to 1)",
+    "activation": "ReLU",
+    "output": "linear logits; softmax is applied only to report scores",
+    "seed": 42,
+    "selection_metric": "validation macro-F1",
+    "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+    "normalization": "ImageNet mean and standard deviation"
+  },
+  "total_params": 11180103,
+  "trainable_params": 3591,
+  "best_epoch": 2,
+  "epochs_ran": 5,
+  "training_seconds": 141.58204908308107,
+  "best_val": {
+    "loss": 1.4323193660880609,
+    "accuracy": 0.6191425722831505,
+    "macro_f1": 0.3442656261440347,
+    "precision_macro": 0.3514605041845464,
+    "recall_macro": 0.45489100114392855
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "lr": [
+      0.001,
+      0.0009330796891903273,
+      0.0007502500000000002,
+      0.0005005000000000001,
+      0.00025075000000000016
+    ],
+    "train_loss": [
+      1.8106660322301207,
+      1.5515385520633453,
+      1.4421673159771475,
+      1.4303983764674297,
+      1.364654012952668
+    ],
+    "train_acc": [
+      0.40516626230911945,
+      0.5039246467817896,
+      0.5367489653203938,
+      0.5508776937348366,
+      0.5557299843014128
+    ],
+    "val_loss": [
+      1.5852201099053456,
+      1.4323193660880609,
+      1.4579581446566825,
+      1.4061087929715188,
+      1.409301528664434
+    ],
+    "val_acc": [
+      0.5274177467597209,
+      0.6191425722831505,
+      0.47756729810568294,
+      0.5274177467597209,
+      0.5154536390827518
+    ],
+    "val_f1": [
+      0.26623848386339005,
+      0.3442656261440347,
+      0.28748394841093383,
+      0.31619484041858475,
+      0.32565292557773035
+    ]
+  },
+  "test": {
+    "accuracy": 0.5975062344139651,
+    "precision_macro": 0.37434734312884066,
+    "recall_macro": 0.4619634329845291,
+    "f1_macro": 0.3456665927058298,
+    "precision_weighted": 0.7436054639053428,
+    "recall_weighted": 0.5975062344139651,
+    "f1_weighted": 0.642983682217509,
+    "per_class": {
+      "actinic keratoses and intraepithelial carcinoma": {
+        "precision": 0.4666666666666667,
+        "recall": 0.10606060606060606,
+        "f1": 0.1728395061728395,
+        "support": 66
+      },
+      "basal cell carcinoma": {
+        "precision": 0.22939068100358423,
+        "recall": 0.6213592233009708,
+        "f1": 0.33507853403141363,
+        "support": 103
+      },
+      "benign keratosis-like lesions": {
+        "precision": 0.43783783783783786,
+        "recall": 0.36818181818181817,
+        "f1": 0.4,
+        "support": 220
+      },
+      "dermatofibroma": {
+        "precision": 0.07407407407407407,
+        "recall": 0.17391304347826086,
+        "f1": 0.1038961038961039,
+        "support": 23
+      },
+      "melanoma": {
+        "precision": 0.35714285714285715,
+        "recall": 0.49327354260089684,
+        "f1": 0.4143126177024482,
+        "support": 223
+      },
+      "melanocytic nevi": {
+        "precision": 0.9361483007209063,
+        "recall": 0.6778523489932886,
+        "f1": 0.7863321799307958,
+        "support": 1341
+      },
+      "vascular lesions": {
+        "precision": 0.11917098445595854,
+        "recall": 0.7931034482758621,
+        "f1": 0.2072072072072072,
+        "support": 29
+      }
+    },
+    "confusion_matrix": [
+      [
+        7,
+        36,
+        5,
+        4,
+        10,
+        0,
+        4
+      ],
+      [
+        0,
+        64,
+        8,
+        6,
+        10,
+        3,
+        12
+      ],
+      [
+        3,
+        60,
+        81,
+        7,
+        40,
+        12,
+        17
+      ],
+      [
+        0,
+        3,
+        1,
+        4,
+        7,
+        6,
+        2
+      ],
+      [
+        0,
+        28,
+        22,
+        6,
+        110,
+        37,
+        20
+      ],
+      [
+        5,
+        86,
+        68,
+        27,
+        131,
+        909,
+        115
+      ],
+      [
+        0,
+        2,
+        0,
+        0,
+        0,
+        4,
+        23
+      ]
+    ],
+    "roc_auc_macro_ovr": 0.8582612446737563,
+    "loss": 1.3908127458910098,
+    "most_confused": {
+      "true": "melanocytic nevi",
+      "predicted": "melanoma",
+      "count": 131
+    },
+    "inference_ms_single": 3.568125073798001,
+    "inference_ms_batched": 1.2353871162850736
+  },
+  "split_counts": {
+    "train": {
+      "actinic keratoses and intraepithelial carcinoma": 228,
+      "basal cell carcinoma": 359,
+      "benign keratosis-like lesions": 769,
+      "dermatofibroma": 80,
+      "melanoma": 779,
+      "melanocytic nevi": 4693,
+      "vascular lesions": 99
+    },
+    "val": {
+      "actinic keratoses and intraepithelial carcinoma": 33,
+      "basal cell carcinoma": 52,
+      "benign keratosis-like lesions": 110,
+      "dermatofibroma": 12,
+      "melanoma": 111,
+      "melanocytic nevi": 671,
+      "vascular lesions": 14
+    },
+    "test": {
+      "actinic keratoses and intraepithelial carcinoma": 66,
+      "basal cell carcinoma": 103,
+      "benign keratosis-like lesions": 220,
+      "dermatofibroma": 23,
+      "melanoma": 223,
+      "melanocytic nevi": 1341,
+      "vascular lesions": 29
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "task": "brain_binary",
+  "config": "finetune",
+  "hyperparameters": {
+    "configuration": "finetune",
+    "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+    "input_size": 224,
+    "batch_size": 32,
+    "max_epochs": 8,
+    "early_stopping_patience": 3,
+    "early_stopping_min_delta_macro_f1": 0.001,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "dropout": 0.3,
+    "optimizer": "AdamW",
+    "scheduler": "cosine decay from the initial learning rate to 1e-6",
+    "loss": "class-weighted cross-entropy (weights average to 1)",
+    "activation": "ReLU",
+    "output": "linear logits; softmax is applied only to report scores",
+    "seed": 42,
+    "selection_metric": "validation macro-F1",
+    "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+    "normalization": "ImageNet mean and standard deviation"
+  },
+  "total_params": 11177538,
+  "trainable_params": 11177538,
+  "best_epoch": 5,
+  "epochs_ran": 8,
+  "training_seconds": 322.25496129202656,
+  "best_val": {
+    "loss": 0.016853681946385358,
+    "accuracy": 0.9976662777129521,
+    "macro_f1": 0.9970988883021219,
+    "precision_macro": 0.9970988883021219,
+    "recall_macro": 0.9970988883021219
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "lr": [
+      0.0001,
+      9.623203685930869e-05,
+      8.55017856687341e-05,
+      6.944282990207195e-05,
+      5.05e-05,
+      3.1557170097928055e-05,
+      1.54982143312659e-05,
+      4.767963140691306e-06
+    ],
+    "train_loss": [
+      0.10391189175841123,
+      0.03545535338714519,
+      0.02569562256696848,
+      0.009020808835472648,
+      0.008528039123369986,
+      0.006373338505421489,
+      0.003487333438817069,
+      0.0029309615572009535
+    ],
+    "train_acc": [
+      0.9606591143151391,
+      0.9894953656024716,
+      0.9907312049433573,
+      0.9977342945417096,
+      0.9979402677651905,
+      0.9979402677651905,
+      0.9991761071060762,
+      0.9993820803295571
+    ],
+    "val_loss": [
+      0.04007158532973418,
+      0.036487589750950775,
+      0.024069642630509508,
+      0.020278419961150606,
+      0.016853681946385358,
+      0.01837984024101959,
+      0.016372541281666816,
+      0.015728889921603817
+    ],
+    "val_acc": [
+      0.9918319719953326,
+      0.9918319719953326,
+      0.9929988331388565,
+      0.9964994165694282,
+      0.9976662777129521,
+      0.9964994165694282,
+      0.9964994165694282,
+      0.9964994165694282
+    ],
+    "val_f1": [
+      0.9898330477638297,
+      0.9898067201903062,
+      0.991362628502318,
+      0.9956539010928639,
+      0.9970988883021219,
+      0.9956427347559271,
+      0.9956427347559271,
+      0.9956427347559271
+    ]
+  },
+  "test": {
+    "accuracy": 0.9969488939740656,
+    "precision_macro": 0.9964271114381489,
+    "recall_macro": 0.9964271114381489,
+    "f1_macro": 0.9964271114381489,
+    "precision_weighted": 0.9969488939740656,
+    "recall_weighted": 0.9969488939740656,
+    "f1_weighted": 0.9969488939740656,
+    "per_class": {
+      "Tumor detected": {
+        "precision": 0.9977924944812362,
+        "recall": 0.9977924944812362,
+        "f1": 0.9977924944812362,
+        "support": 906
+      },
+      "No tumor detected": {
+        "precision": 0.9950617283950617,
+        "recall": 0.9950617283950617,
+        "f1": 0.9950617283950617,
+        "support": 405
+      }
+    },
+    "confusion_matrix": [
+      [
+        904,
+        2
+      ],
+      [
+        2,
+        403
+      ]
+    ],
+    "roc_auc_macro_ovr": 0.9995121685335078,
+    "loss": 0.0196028265502661,
+    "most_confused": {
+      "true": "Tumor detected",
+      "predicted": "No tumor detected",
+      "count": 2
+    },
+    "inference_ms_single": 3.0916669638827443,
+    "inference_ms_batched": 1.2471003693753668
+  },
+  "split_counts": {
+    "train": {
+      "Tumor detected": 3499,
+      "No tumor detected": 1356
+    },
+    "val": {
+      "Tumor detected": 618,
+      "No tumor detected": 239
+    },
+    "test": {
+      "Tumor detected": 906,
+      "No tumor detected": 405
+    }
+  }
+}

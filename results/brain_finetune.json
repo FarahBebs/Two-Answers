@@ -1,0 +1,199 @@
+{
+  "task": "brain",
+  "config": "finetune",
+  "hyperparameters": {
+    "configuration": "finetune",
+    "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+    "input_size": 224,
+    "batch_size": 32,
+    "max_epochs": 8,
+    "early_stopping_patience": 3,
+    "early_stopping_min_delta_macro_f1": 0.001,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "dropout": 0.3,
+    "optimizer": "AdamW",
+    "scheduler": "cosine decay from the initial learning rate to 1e-6",
+    "loss": "class-weighted cross-entropy (weights average to 1)",
+    "activation": "ReLU",
+    "output": "linear logits; softmax is applied only to report scores",
+    "seed": 42,
+    "selection_metric": "validation macro-F1",
+    "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+    "normalization": "ImageNet mean and standard deviation"
+  },
+  "total_params": 11178564,
+  "trainable_params": 11178564,
+  "best_epoch": 6,
+  "epochs_ran": 8,
+  "training_seconds": 359.4815110840136,
+  "best_val": {
+    "loss": 0.03559922253280495,
+    "accuracy": 0.9871645274212368,
+    "macro_f1": 0.9869359777249798,
+    "precision_macro": 0.9867415241958852,
+    "recall_macro": 0.9871806713431113
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "lr": [
+      0.0001,
+      9.623203685930869e-05,
+      8.55017856687341e-05,
+      6.944282990207195e-05,
+      5.05e-05,
+      3.1557170097928055e-05,
+      1.54982143312659e-05,
+      4.767963140691306e-06
+    ],
+    "train_loss": [
+      0.31515470198389184,
+      0.11308971355553145,
+      0.07801611380139414,
+      0.05585282755944682,
+      0.03948362963283713,
+      0.027894533747983626,
+      0.018300615195674105,
+      0.016347054423559094
+    ],
+    "train_acc": [
+      0.8840370751802266,
+      0.9627188465499485,
+      0.9715756951596293,
+      0.9802265705458291,
+      0.9878475798146241,
+      0.9925849639546859,
+      0.9950566426364572,
+      0.995880535530381
+    ],
+    "val_loss": [
+      0.14898617428269936,
+      0.07963577913752863,
+      0.08033742353998237,
+      0.050901479659930235,
+      0.04095359909421,
+      0.03559922253280495,
+      0.0399152837645332,
+      0.03825458875002042
+    ],
+    "val_acc": [
+      0.9509918319719953,
+      0.9673278879813302,
+      0.9719953325554259,
+      0.9824970828471412,
+      0.9859976662777129,
+      0.9871645274212368,
+      0.9859976662777129,
+      0.9859976662777129
+    ],
+    "val_f1": [
+      0.9500442656087679,
+      0.9664766734678327,
+      0.9712409046175349,
+      0.981837034139736,
+      0.985758708754846,
+      0.9869359777249798,
+      0.9855658105130263,
+      0.9855658105130263
+    ]
+  },
+  "test": {
+    "accuracy": 0.9908466819221968,
+    "precision_macro": 0.9907153657153657,
+    "recall_macro": 0.9900490196078432,
+    "f1_macro": 0.9903352366486798,
+    "precision_weighted": 0.9909758897173084,
+    "recall_weighted": 0.9908466819221968,
+    "f1_weighted": 0.9908673977379038,
+    "per_class": {
+      "Glioma": {
+        "precision": 0.9966216216216216,
+        "recall": 0.9833333333333333,
+        "f1": 0.9899328859060402,
+        "support": 300
+      },
+      "Meningioma": {
+        "precision": 0.9711538461538461,
+        "recall": 0.9901960784313726,
+        "f1": 0.9805825242718447,
+        "support": 306
+      },
+      "Pituitary tumor": {
+        "precision": 1.0,
+        "recall": 0.9866666666666667,
+        "f1": 0.9932885906040269,
+        "support": 300
+      },
+      "No tumor": {
+        "precision": 0.995085995085995,
+        "recall": 1.0,
+        "f1": 0.9975369458128078,
+        "support": 405
+      }
+    },
+    "confusion_matrix": [
+      [
+        295,
+        5,
+        0,
+        0
+      ],
+      [
+        1,
+        303,
+        0,
+        2
+      ],
+      [
+        0,
+        4,
+        296,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        405
+      ]
+    ],
+    "roc_auc_macro_ovr": 0.9996681558714375,
+    "loss": 0.032925498785137064,
+    "most_confused": {
+      "true": "Glioma",
+      "predicted": "Meningioma",
+      "count": 5
+    },
+    "inference_ms_single": 3.834167029708624,
+    "inference_ms_batched": 1.1754647240257223
+  },
+  "split_counts": {
+    "train": {
+      "Glioma": 1123,
+      "Meningioma": 1138,
+      "Pituitary tumor": 1238,
+      "No tumor": 1356
+    },
+    "val": {
+      "Glioma": 198,
+      "Meningioma": 201,
+      "Pituitary tumor": 219,
+      "No tumor": 239
+    },
+    "test": {
+      "Glioma": 300,
+      "Meningioma": 306,
+      "Pituitary tumor": 300,
+      "No tumor": 405
+    }
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "index": 74,
+    "true": "Malignant",
+    "predicted": "Malignant",
+    "confidence": 0.9997413754463196,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/iqoth/The-IQ-OTHNCCD-lung-cancer-dataset-main/Malignant cases/Malignant case (197).jpg"
+  },
+  {
+    "index": 103,
+    "true": "Normal",
+    "predicted": "Normal",
+    "confidence": 0.9991559982299805,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/iqoth/The-IQ-OTHNCCD-lung-cancer-dataset-main/Normal cases/Normal case (110).jpg"
+  },
+  {
+    "index": 98,
+    "true": "Benign",
+    "predicted": "Benign",
+    "confidence": 0.9919701218605042,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/iqoth/The-IQ-OTHNCCD-lung-cancer-dataset-main/Bengin cases/Bengin case (87).jpg"
+  },
+  {
+    "index": 11,
+    "true": "Normal",
+    "predicted": "Benign",
+    "confidence": 0.8446021676063538,
+    "correct": false,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/iqoth/The-IQ-OTHNCCD-lung-cancer-dataset-main/Normal cases/Normal case (404).jpg"
+  },
+  {
+    "index": 123,
+    "true": "Benign",
+    "predicted": "Normal",
+    "confidence": 0.8377717137336731,
+    "correct": false,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/iqoth/The-IQ-OTHNCCD-lung-cancer-dataset-main/Bengin cases/Bengin case (119).jpg"
+  }
+]

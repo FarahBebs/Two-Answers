@@ -1,0 +1,42 @@
+[
+  {
+    "index": 154,
+    "true": "Fibroadenoma",
+    "predicted": "Fibroadenoma",
+    "confidence": 0.9999960660934448,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/breakhis/BreaKHis_v1/histology_slides/breast/benign/SOB/fibroadenoma/SOB_B_F_14-21998EF/100X/SOB_B_F-14-21998EF-100-023.png"
+  },
+  {
+    "index": 17,
+    "true": "Adenosis",
+    "predicted": "Adenosis",
+    "confidence": 0.9999886751174927,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/breakhis/BreaKHis_v1/histology_slides/breast/benign/SOB/adenosis/SOB_B_A_14-22549CD/100X/SOB_B_A-14-22549CD-100-018.png"
+  },
+  {
+    "index": 1457,
+    "true": "Papillary carcinoma",
+    "predicted": "Papillary carcinoma",
+    "confidence": 0.999930739402771,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/breakhis/BreaKHis_v1/histology_slides/breast/malignant/SOB/papillary_carcinoma/SOB_M_PC_14-9146/100X/SOB_M_PC-14-9146-100-011.png"
+  },
+  {
+    "index": 400,
+    "true": "Phyllodes tumor",
+    "predicted": "Fibroadenoma",
+    "confidence": 0.9999986886978149,
+    "correct": false,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/breakhis/BreaKHis_v1/histology_slides/breast/benign/SOB/phyllodes_tumor/SOB_B_PT_14-21998AB/100X/SOB_B_PT-14-21998AB-100-022.png"
+  },
+  {
+    "index": 412,
+    "true": "Phyllodes tumor",
+    "predicted": "Fibroadenoma",
+    "confidence": 0.999997615814209,
+    "correct": false,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/breakhis/BreaKHis_v1/histology_slides/breast/benign/SOB/phyllodes_tumor/SOB_B_PT_14-21998AB/100X/SOB_B_PT-14-21998AB-100-034.png"
+  }
+]

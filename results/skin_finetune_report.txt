@@ -1,0 +1,13 @@
+                                                 precision    recall  f1-score   support
+
+actinic keratoses and intraepithelial carcinoma     0.6087    0.6364    0.6222        66
+                           basal cell carcinoma     0.6822    0.8544    0.7586       103
+                  benign keratosis-like lesions     0.5894    0.7045    0.6418       220
+                                 dermatofibroma     0.6400    0.6957    0.6667        23
+                                       melanoma     0.4841    0.6816    0.5661       223
+                               melanocytic nevi     0.9513    0.8300    0.8865      1341
+                               vascular lesions     0.7429    0.8966    0.8125        29
+
+                                       accuracy                         0.7940      2005
+                                      macro avg     0.6712    0.7570    0.7078      2005
+                                   weighted avg     0.8279    0.7940    0.8052      2005

@@ -1,0 +1,42 @@
+[
+  {
+    "index": 1058,
+    "true": "Pituitary tumor",
+    "predicted": "Pituitary tumor",
+    "confidence": 0.9999997615814209,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/brain/Testing/pituitary/Te-pi_0047.jpg"
+  },
+  {
+    "index": 934,
+    "true": "No tumor",
+    "predicted": "No tumor",
+    "confidence": 0.9999994039535522,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/brain/Testing/notumor/Te-no_0328.jpg"
+  },
+  {
+    "index": 374,
+    "true": "Meningioma",
+    "predicted": "Meningioma",
+    "confidence": 0.9999978542327881,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/brain/Testing/meningioma/Te-me_0074.jpg"
+  },
+  {
+    "index": 1013,
+    "true": "Pituitary tumor",
+    "predicted": "Meningioma",
+    "confidence": 0.9907237887382507,
+    "correct": false,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/brain/Testing/pituitary/Te-piTr_0002.jpg"
+  },
+  {
+    "index": 1182,
+    "true": "Pituitary tumor",
+    "predicted": "Meningioma",
+    "confidence": 0.9906479716300964,
+    "correct": false,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/brain/Testing/pituitary/Te-pi_0171.jpg"
+  }
+]

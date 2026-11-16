@@ -1,0 +1,165 @@
+{
+  "task": "skin_binary",
+  "config": "finetune",
+  "hyperparameters": {
+    "configuration": "finetune",
+    "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+    "input_size": 224,
+    "batch_size": 32,
+    "max_epochs": 8,
+    "early_stopping_patience": 3,
+    "early_stopping_min_delta_macro_f1": 0.001,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "dropout": 0.3,
+    "optimizer": "AdamW",
+    "scheduler": "cosine decay from the initial learning rate to 1e-6",
+    "loss": "class-weighted cross-entropy (weights average to 1)",
+    "activation": "ReLU",
+    "output": "linear logits; softmax is applied only to report scores",
+    "seed": 42,
+    "selection_metric": "validation macro-F1",
+    "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+    "normalization": "ImageNet mean and standard deviation"
+  },
+  "total_params": 11177538,
+  "trainable_params": 11177538,
+  "best_epoch": 6,
+  "epochs_ran": 8,
+  "training_seconds": 393.7843425839674,
+  "best_val": {
+    "loss": 0.3362764266885052,
+    "accuracy": 0.8873379860418744,
+    "macro_f1": 0.8324708476896175,
+    "precision_macro": 0.8143804693160916,
+    "recall_macro": 0.856592823002807
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "lr": [
+      0.0001,
+      9.623203685930869e-05,
+      8.55017856687341e-05,
+      6.944282990207195e-05,
+      5.05e-05,
+      3.1557170097928055e-05,
+      1.54982143312659e-05,
+      4.767963140691306e-06
+    ],
+    "train_loss": [
+      0.46003936543960755,
+      0.3810901193726296,
+      0.3431236412771183,
+      0.28914307857037813,
+      0.24925751329761303,
+      0.19824921785594224,
+      0.16658048116949836,
+      0.13966957623580561
+    ],
+    "train_acc": [
+      0.7528186099614671,
+      0.8061938061938062,
+      0.8325959754531184,
+      0.8652775795632939,
+      0.8863993149707435,
+      0.9135150563721992,
+      0.9296417867846439,
+      0.944626801769659
+    ],
+    "val_loss": [
+      0.4025811153953358,
+      0.36698846416482894,
+      0.42001921782346213,
+      0.34866273260544445,
+      0.36459707488804494,
+      0.3362764266885052,
+      0.3856073723714112,
+      0.4010452347643235
+    ],
+    "val_acc": [
+      0.7856430707876371,
+      0.8195413758723828,
+      0.8664007976071785,
+      0.8374875373878365,
+      0.8733798604187437,
+      0.8873379860418744,
+      0.8843469591226321,
+      0.8893320039880359
+    ],
+    "val_f1": [
+      0.7253311323650602,
+      0.7592283870796612,
+      0.7907814445828145,
+      0.7808191079608906,
+      0.81543399042258,
+      0.8324708476896175,
+      0.8195617920373196,
+      0.8270165707227259
+    ]
+  },
+  "test": {
+    "accuracy": 0.8977556109725686,
+    "precision_macro": 0.8293892529194249,
+    "recall_macro": 0.8707978541695662,
+    "f1_macro": 0.8473683409205097,
+    "precision_weighted": 0.9064671136607807,
+    "recall_weighted": 0.8977556109725686,
+    "f1_weighted": 0.9007735985017283,
+    "per_class": {
+      "Cancer-related": {
+        "precision": 0.702819956616052,
+        "recall": 0.826530612244898,
+        "f1": 0.7596717467760844,
+        "support": 392
+      },
+      "Not cancer-related": {
+        "precision": 0.9559585492227979,
+        "recall": 0.9150650960942344,
+        "f1": 0.935064935064935,
+        "support": 1613
+      }
+    },
+    "confusion_matrix": [
+      [
+        324,
+        68
+      ],
+      [
+        137,
+        1476
+      ]
+    ],
+    "roc_auc_macro_ovr": 0.9465266267697408,
+    "loss": 0.3399132530142244,
+    "most_confused": {
+      "true": "Not cancer-related",
+      "predicted": "Cancer-related",
+      "count": 137
+    },
+    "inference_ms_single": 2.9514170018956065,
+    "inference_ms_batched": 1.1877310061664728
+  },
+  "split_counts": {
+    "train": {
+      "Cancer-related": 1366,
+      "Not cancer-related": 5641
+    },
+    "val": {
+      "Cancer-related": 196,
+      "Not cancer-related": 807
+    },
+    "test": {
+      "Cancer-related": 392,
+      "Not cancer-related": 1613
+    }
+  }
+}

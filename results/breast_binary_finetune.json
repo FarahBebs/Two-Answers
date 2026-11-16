@@ -1,0 +1,165 @@
+{
+  "task": "breast_binary",
+  "config": "finetune",
+  "hyperparameters": {
+    "configuration": "finetune",
+    "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+    "input_size": 224,
+    "batch_size": 32,
+    "max_epochs": 8,
+    "early_stopping_patience": 3,
+    "early_stopping_min_delta_macro_f1": 0.001,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "dropout": 0.3,
+    "optimizer": "AdamW",
+    "scheduler": "cosine decay from the initial learning rate to 1e-6",
+    "loss": "class-weighted cross-entropy (weights average to 1)",
+    "activation": "ReLU",
+    "output": "linear logits; softmax is applied only to report scores",
+    "seed": 42,
+    "selection_metric": "validation macro-F1",
+    "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+    "normalization": "ImageNet mean and standard deviation"
+  },
+  "total_params": 11177538,
+  "trainable_params": 11177538,
+  "best_epoch": 6,
+  "epochs_ran": 8,
+  "training_seconds": 650.4938734170282,
+  "best_val": {
+    "loss": 0.40125588328844525,
+    "accuracy": 0.9206576125804146,
+    "macro_f1": 0.9167796089704324,
+    "precision_macro": 0.920490608948306,
+    "recall_macro": 0.9137376148116005
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "lr": [
+      0.0001,
+      9.623203685930869e-05,
+      8.55017856687341e-05,
+      6.944282990207195e-05,
+      5.05e-05,
+      3.1557170097928055e-05,
+      1.54982143312659e-05,
+      4.767963140691306e-06
+    ],
+    "train_loss": [
+      0.336644220858267,
+      0.1606158591685534,
+      0.11770730118815768,
+      0.09160246581839959,
+      0.06200977887830192,
+      0.044541169339991325,
+      0.03049136142598691,
+      0.032781562742640644
+    ],
+    "train_acc": [
+      0.8469736577518601,
+      0.9358536094912527,
+      0.9565654534486225,
+      0.9650110597225016,
+      0.976674039815001,
+      0.9829077015885783,
+      0.9913533078624572,
+      0.9889402774984919
+    ],
+    "val_loss": [
+      0.45437887179438263,
+      0.5609938477858613,
+      0.3637673794899162,
+      0.39522260040533413,
+      0.45738408996009955,
+      0.40125588328844525,
+      0.43865840708034903,
+      0.46029942950476466
+    ],
+    "val_acc": [
+      0.8899213724088635,
+      0.8720514653323803,
+      0.8870621872766261,
+      0.90421729807005,
+      0.9035025017869907,
+      0.9206576125804146,
+      0.9142244460328807,
+      0.9149392423159399
+    ],
+    "val_f1": [
+      0.8864385802898624,
+      0.8624287961166862,
+      0.8801051402883004,
+      0.9001906039696737,
+      0.8984518702244313,
+      0.9167796089704324,
+      0.909704652243507,
+      0.9107817429502834
+    ]
+  },
+  "test": {
+    "accuracy": 0.9180221210149642,
+    "precision_macro": 0.9187287354569581,
+    "recall_macro": 0.9148978169596726,
+    "f1_macro": 0.9165373754925994,
+    "precision_weighted": 0.9181811857378372,
+    "recall_weighted": 0.9180221210149642,
+    "f1_weighted": 0.9178338118267618,
+    "per_class": {
+      "Benign": {
+        "precision": 0.9234303215926493,
+        "recall": 0.8880706921944035,
+        "f1": 0.9054054054054054,
+        "support": 679
+      },
+      "Malignant": {
+        "precision": 0.9140271493212669,
+        "recall": 0.9417249417249417,
+        "f1": 0.9276693455797933,
+        "support": 858
+      }
+    },
+    "confusion_matrix": [
+      [
+        603,
+        76
+      ],
+      [
+        50,
+        808
+      ]
+    ],
+    "roc_auc_macro_ovr": 0.9699389957121916,
+    "loss": 0.2419529749836746,
+    "most_confused": {
+      "true": "Benign",
+      "predicted": "Malignant",
+      "count": 76
+    },
+    "inference_ms_single": 2.7627090457826853,
+    "inference_ms_batched": 1.3316324547693017
+  },
+  "split_counts": {
+    "train": {
+      "Benign": 1240,
+      "Malignant": 3733
+    },
+    "val": {
+      "Benign": 561,
+      "Malignant": 838
+    },
+    "test": {
+      "Benign": 679,
+      "Malignant": 858
+    }
+  }
+}

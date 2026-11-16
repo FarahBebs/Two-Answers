@@ -1,0 +1,42 @@
+[
+  {
+    "index": 312,
+    "true": "Tumor detected",
+    "predicted": "Tumor detected",
+    "confidence": 1.0,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/brain/Testing/meningioma/Te-me_0012.jpg"
+  },
+  {
+    "index": 622,
+    "true": "No tumor detected",
+    "predicted": "No tumor detected",
+    "confidence": 1.0,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/brain/Testing/notumor/Te-no_0016.jpg"
+  },
+  {
+    "index": 411,
+    "true": "Tumor detected",
+    "predicted": "No tumor detected",
+    "confidence": 0.9999884366989136,
+    "correct": false,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/brain/Testing/meningioma/Te-me_0111.jpg"
+  },
+  {
+    "index": 359,
+    "true": "Tumor detected",
+    "predicted": "No tumor detected",
+    "confidence": 0.9704748392105103,
+    "correct": false,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/brain/Testing/meningioma/Te-me_0059.jpg"
+  },
+  {
+    "index": 606,
+    "true": "No tumor detected",
+    "predicted": "Tumor detected",
+    "confidence": 0.8070213198661804,
+    "correct": false,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/brain/Testing/notumor/Te-noTr_0000.jpg"
+  }
+]

@@ -1,0 +1,181 @@
+{
+  "task": "lung",
+  "config": "finetune",
+  "hyperparameters": {
+    "configuration": "finetune",
+    "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+    "input_size": 224,
+    "batch_size": 32,
+    "max_epochs": 8,
+    "early_stopping_patience": 3,
+    "early_stopping_min_delta_macro_f1": 0.001,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "dropout": 0.3,
+    "optimizer": "AdamW",
+    "scheduler": "cosine decay from the initial learning rate to 1e-6",
+    "loss": "class-weighted cross-entropy (weights average to 1)",
+    "activation": "ReLU",
+    "output": "linear logits; softmax is applied only to report scores",
+    "seed": 42,
+    "selection_metric": "validation macro-F1",
+    "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+    "normalization": "ImageNet mean and standard deviation"
+  },
+  "total_params": 11178051,
+  "trainable_params": 11178051,
+  "best_epoch": 6,
+  "epochs_ran": 8,
+  "training_seconds": 62.48692875006236,
+  "best_val": {
+    "loss": 0.23747814252521052,
+    "accuracy": 0.9333333333333333,
+    "macro_f1": 0.8905612905612905,
+    "precision_macro": 0.8783068783068783,
+    "recall_macro": 0.9060846560846562
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "lr": [
+      0.0001,
+      9.623203685930869e-05,
+      8.55017856687341e-05,
+      6.944282990207195e-05,
+      5.05e-05,
+      3.1557170097928055e-05,
+      1.54982143312659e-05,
+      4.767963140691306e-06
+    ],
+    "train_loss": [
+      0.6898403626221877,
+      0.4301699570913203,
+      0.34015885314077254,
+      0.26818181749195286,
+      0.19442625437053274,
+      0.17869693456603775,
+      0.16145913804136947,
+      0.1280953565216593
+    ],
+    "train_acc": [
+      0.6857887874837028,
+      0.8461538461538461,
+      0.8761408083441982,
+      0.9217731421121251,
+      0.9504563233376793,
+      0.9439374185136897,
+      0.9569752281616688,
+      0.9687092568448501
+    ],
+    "val_loss": [
+      0.5182849045955773,
+      0.4450287224668445,
+      0.3750021011540384,
+      0.5560484493772189,
+      0.28770301974180973,
+      0.23747814252521052,
+      0.2418630850586024,
+      0.23237258728706475
+    ],
+    "val_acc": [
+      0.8242424242424242,
+      0.8545454545454545,
+      0.9030303030303031,
+      0.8484848484848485,
+      0.9090909090909091,
+      0.9333333333333333,
+      0.9151515151515152,
+      0.9212121212121213
+    ],
+    "val_f1": [
+      0.7198418811255781,
+      0.7513236075551907,
+      0.8293986577539393,
+      0.747843044245922,
+      0.8623292296504078,
+      0.8905612905612905,
+      0.8666471038946219,
+      0.8746013794346167
+    ]
+  },
+  "test": {
+    "accuracy": 0.9636363636363636,
+    "precision_macro": 0.9317434210526315,
+    "recall_macro": 0.9444444444444445,
+    "f1_macro": 0.9378155311178743,
+    "precision_weighted": 0.9648773923444977,
+    "recall_weighted": 0.9636363636363636,
+    "f1_weighted": 0.9640921479646457,
+    "per_class": {
+      "Normal": {
+        "precision": 0.953125,
+        "recall": 0.9682539682539683,
+        "f1": 0.9606299212598425,
+        "support": 63
+      },
+      "Benign": {
+        "precision": 0.8421052631578947,
+        "recall": 0.8888888888888888,
+        "f1": 0.8648648648648649,
+        "support": 18
+      },
+      "Malignant": {
+        "precision": 1.0,
+        "recall": 0.9761904761904762,
+        "f1": 0.9879518072289156,
+        "support": 84
+      }
+    },
+    "confusion_matrix": [
+      [
+        61,
+        2,
+        0
+      ],
+      [
+        2,
+        16,
+        0
+      ],
+      [
+        1,
+        1,
+        82
+      ]
+    ],
+    "roc_auc_macro_ovr": 0.9945904287640982,
+    "loss": 0.17106701069031702,
+    "most_confused": {
+      "true": "Normal",
+      "predicted": "Benign",
+      "count": 2
+    },
+    "inference_ms_single": 2.8141249204054475,
+    "inference_ms_batched": 1.2212025199198362
+  },
+  "split_counts": {
+    "train": {
+      "Normal": 290,
+      "Benign": 84,
+      "Malignant": 393
+    },
+    "val": {
+      "Normal": 63,
+      "Benign": 18,
+      "Malignant": 84
+    },
+    "test": {
+      "Normal": 63,
+      "Benign": 18,
+      "Malignant": 84
+    }
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "index": 3,
+    "true": "Malignant",
+    "predicted": "Malignant",
+    "confidence": 1.0,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/iqoth/The-IQ-OTHNCCD-lung-cancer-dataset-main/Malignant cases/Malignant case (457).jpg"
+  },
+  {
+    "index": 120,
+    "true": "Not malignant",
+    "predicted": "Not malignant",
+    "confidence": 0.9999992847442627,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/iqoth/The-IQ-OTHNCCD-lung-cancer-dataset-main/Normal cases/Normal case (249).jpg"
+  },
+  {
+    "index": 25,
+    "true": "Not malignant",
+    "predicted": "Malignant",
+    "confidence": 0.5529873371124268,
+    "correct": false,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/iqoth/The-IQ-OTHNCCD-lung-cancer-dataset-main/Normal cases/Normal case (348).jpg"
+  },
+  {
+    "index": 7,
+    "true": "Malignant",
+    "predicted": "Malignant",
+    "confidence": 1.0,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/iqoth/The-IQ-OTHNCCD-lung-cancer-dataset-main/Malignant cases/Malignant case (455).jpg"
+  },
+  {
+    "index": 8,
+    "true": "Malignant",
+    "predicted": "Malignant",
+    "confidence": 1.0,
+    "correct": true,
+    "file": "/Users/farahalhasan/Desktop/Projects/Deep Learning/Homework 2 - CancerAI/data/iqoth/The-IQ-OTHNCCD-lung-cancer-dataset-main/Malignant cases/Malignant case (124).jpg"
+  }
+]

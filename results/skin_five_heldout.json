@@ -1,0 +1,37 @@
+[
+  {
+    "index": 1784,
+    "true": "vascular lesions",
+    "predicted": "vascular lesions",
+    "confidence": 0.9999991655349731,
+    "correct": true
+  },
+  {
+    "index": 1521,
+    "true": "melanocytic nevi",
+    "predicted": "melanocytic nevi",
+    "confidence": 0.9999657869338989,
+    "correct": true
+  },
+  {
+    "index": 758,
+    "true": "dermatofibroma",
+    "predicted": "dermatofibroma",
+    "confidence": 0.9999423027038574,
+    "correct": true
+  },
+  {
+    "index": 702,
+    "true": "actinic keratoses and intraepithelial carcinoma",
+    "predicted": "basal cell carcinoma",
+    "confidence": 0.9990866184234619,
+    "correct": false
+  },
+  {
+    "index": 199,
+    "true": "actinic keratoses and intraepithelial carcinoma",
+    "predicted": "basal cell carcinoma",
+    "confidence": 0.9915213584899902,
+    "correct": false
+  }
+]

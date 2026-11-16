@@ -1,0 +1,10 @@
+torch>=2.2
+torchvision>=0.17
+matplotlib
+numpy
+pillow
+pillow-heif
+scikit-learn
+gradio
+medmnist
+tqdm

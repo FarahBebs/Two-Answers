@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+data/
+phone_photos/*
+!phone_photos/labels.csv
+!phone_photos/.gitkeep

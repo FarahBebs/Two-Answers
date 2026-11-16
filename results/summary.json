@@ -1,0 +1,2053 @@
+{
+  "brain": {
+    "selected": "finetune",
+    "runs": [
+      {
+        "task": "brain",
+        "config": "finetune",
+        "hyperparameters": {
+          "configuration": "finetune",
+          "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+          "input_size": 224,
+          "batch_size": 32,
+          "max_epochs": 8,
+          "early_stopping_patience": 3,
+          "early_stopping_min_delta_macro_f1": 0.001,
+          "learning_rate": 0.0001,
+          "weight_decay": 0.0001,
+          "dropout": 0.3,
+          "optimizer": "AdamW",
+          "scheduler": "cosine decay from the initial learning rate to 1e-6",
+          "loss": "class-weighted cross-entropy (weights average to 1)",
+          "activation": "ReLU",
+          "output": "linear logits; softmax is applied only to report scores",
+          "seed": 42,
+          "selection_metric": "validation macro-F1",
+          "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+          "normalization": "ImageNet mean and standard deviation"
+        },
+        "total_params": 11178564,
+        "trainable_params": 11178564,
+        "best_epoch": 6,
+        "epochs_ran": 8,
+        "training_seconds": 359.4815110840136,
+        "best_val": {
+          "loss": 0.03559922253280495,
+          "accuracy": 0.9871645274212368,
+          "macro_f1": 0.9869359777249798,
+          "precision_macro": 0.9867415241958852,
+          "recall_macro": 0.9871806713431113
+        },
+        "history": {
+          "epoch": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "lr": [
+            0.0001,
+            9.623203685930869e-05,
+            8.55017856687341e-05,
+            6.944282990207195e-05,
+            5.05e-05,
+            3.1557170097928055e-05,
+            1.54982143312659e-05,
+            4.767963140691306e-06
+          ],
+          "train_loss": [
+            0.31515470198389184,
+            0.11308971355553145,
+            0.07801611380139414,
+            0.05585282755944682,
+            0.03948362963283713,
+            0.027894533747983626,
+            0.018300615195674105,
+            0.016347054423559094
+          ],
+          "train_acc": [
+            0.8840370751802266,
+            0.9627188465499485,
+            0.9715756951596293,
+            0.9802265705458291,
+            0.9878475798146241,
+            0.9925849639546859,
+            0.9950566426364572,
+            0.995880535530381
+          ],
+          "val_loss": [
+            0.14898617428269936,
+            0.07963577913752863,
+            0.08033742353998237,
+            0.050901479659930235,
+            0.04095359909421,
+            0.03559922253280495,
+            0.0399152837645332,
+            0.03825458875002042
+          ],
+          "val_acc": [
+            0.9509918319719953,
+            0.9673278879813302,
+            0.9719953325554259,
+            0.9824970828471412,
+            0.9859976662777129,
+            0.9871645274212368,
+            0.9859976662777129,
+            0.9859976662777129
+          ],
+          "val_f1": [
+            0.9500442656087679,
+            0.9664766734678327,
+            0.9712409046175349,
+            0.981837034139736,
+            0.985758708754846,
+            0.9869359777249798,
+            0.9855658105130263,
+            0.9855658105130263
+          ]
+        },
+        "test": {
+          "accuracy": 0.9908466819221968,
+          "precision_macro": 0.9907153657153657,
+          "recall_macro": 0.9900490196078432,
+          "f1_macro": 0.9903352366486798,
+          "precision_weighted": 0.9909758897173084,
+          "recall_weighted": 0.9908466819221968,
+          "f1_weighted": 0.9908673977379038,
+          "per_class": {
+            "Glioma": {
+              "precision": 0.9966216216216216,
+              "recall": 0.9833333333333333,
+              "f1": 0.9899328859060402,
+              "support": 300
+            },
+            "Meningioma": {
+              "precision": 0.9711538461538461,
+              "recall": 0.9901960784313726,
+              "f1": 0.9805825242718447,
+              "support": 306
+            },
+            "Pituitary tumor": {
+              "precision": 1.0,
+              "recall": 0.9866666666666667,
+              "f1": 0.9932885906040269,
+              "support": 300
+            },
+            "No tumor": {
+              "precision": 0.995085995085995,
+              "recall": 1.0,
+              "f1": 0.9975369458128078,
+              "support": 405
+            }
+          },
+          "confusion_matrix": [
+            [
+              295,
+              5,
+              0,
+              0
+            ],
+            [
+              1,
+              303,
+              0,
+              2
+            ],
+            [
+              0,
+              4,
+              296,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              405
+            ]
+          ],
+          "roc_auc_macro_ovr": 0.9996681558714375,
+          "loss": 0.032925498785137064,
+          "most_confused": {
+            "true": "Glioma",
+            "predicted": "Meningioma",
+            "count": 5
+          },
+          "inference_ms_single": 3.834167029708624,
+          "inference_ms_batched": 1.1754647240257223
+        },
+        "split_counts": {
+          "train": {
+            "Glioma": 1123,
+            "Meningioma": 1138,
+            "Pituitary tumor": 1238,
+            "No tumor": 1356
+          },
+          "val": {
+            "Glioma": 198,
+            "Meningioma": 201,
+            "Pituitary tumor": 219,
+            "No tumor": 239
+          },
+          "test": {
+            "Glioma": 300,
+            "Meningioma": 306,
+            "Pituitary tumor": 300,
+            "No tumor": 405
+          }
+        }
+      },
+      {
+        "task": "brain",
+        "config": "frozen",
+        "hyperparameters": {
+          "configuration": "frozen",
+          "architecture": "ResNet18 pretrained on ImageNet; convolutional backbone frozen; new dropout + linear head trained",
+          "input_size": 224,
+          "batch_size": 32,
+          "max_epochs": 6,
+          "early_stopping_patience": 3,
+          "early_stopping_min_delta_macro_f1": 0.001,
+          "learning_rate": 0.001,
+          "weight_decay": 0.0001,
+          "dropout": 0.3,
+          "optimizer": "AdamW",
+          "scheduler": "cosine decay from the initial learning rate to 1e-6",
+          "loss": "class-weighted cross-entropy (weights average to 1)",
+          "activation": "ReLU",
+          "output": "linear logits; softmax is applied only to report scores",
+          "seed": 42,
+          "selection_metric": "validation macro-F1",
+          "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+          "normalization": "ImageNet mean and standard deviation"
+        },
+        "total_params": 11178564,
+        "trainable_params": 2052,
+        "best_epoch": 4,
+        "epochs_ran": 6,
+        "training_seconds": 179.24826029210817,
+        "best_val": {
+          "loss": 0.39764600248014076,
+          "accuracy": 0.8809801633605601,
+          "macro_f1": 0.8783625135812348,
+          "precision_macro": 0.8798470633179931,
+          "recall_macro": 0.8777265049219598
+        },
+        "history": {
+          "epoch": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "lr": [
+            0.001,
+            0.0009330796891903273,
+            0.0007502500000000002,
+            0.0005005000000000001,
+            0.00025075000000000016,
+            6.792031080967287e-05
+          ],
+          "train_loss": [
+            0.8263522601152179,
+            0.5590631171554542,
+            0.49785498128983313,
+            0.47387103195907404,
+            0.468360379703504,
+            0.45790240606858973
+          ],
+          "train_acc": [
+            0.682183316168898,
+            0.8,
+            0.8201853759011328,
+            0.8339855818743563,
+            0.8339855818743563,
+            0.8331616889804325
+          ],
+          "val_loss": [
+            0.5498611119552977,
+            0.4508034490579207,
+            0.4168982572914422,
+            0.39764600248014076,
+            0.39711185229144547,
+            0.38768390572196265
+          ],
+          "val_acc": [
+            0.8249708284714119,
+            0.8588098016336057,
+            0.8716452742123687,
+            0.8809801633605601,
+            0.8739789964994166,
+            0.8833138856476079
+          ],
+          "val_f1": [
+            0.8172809354850719,
+            0.8534584161073502,
+            0.8672098298731601,
+            0.8783625135812348,
+            0.8674183739176655,
+            0.8793173967477497
+          ]
+        },
+        "test": {
+          "accuracy": 0.8291380625476735,
+          "precision_macro": 0.8246558139817178,
+          "recall_macro": 0.8209513435003631,
+          "f1_macro": 0.8217534356734096,
+          "precision_weighted": 0.8291474767076259,
+          "recall_weighted": 0.8291380625476735,
+          "f1_weighted": 0.8281431235967271,
+          "per_class": {
+            "Glioma": {
+              "precision": 0.8598484848484849,
+              "recall": 0.7566666666666667,
+              "f1": 0.8049645390070922,
+              "support": 300
+            },
+            "Meningioma": {
+              "precision": 0.6774193548387096,
+              "recall": 0.6862745098039216,
+              "f1": 0.6818181818181818,
+              "support": 306
+            },
+            "Pituitary tumor": {
+              "precision": 0.8722044728434505,
+              "recall": 0.91,
+              "f1": 0.8907014681892332,
+              "support": 300
+            },
+            "No tumor": {
+              "precision": 0.8891509433962265,
+              "recall": 0.9308641975308642,
+              "f1": 0.9095295536791315,
+              "support": 405
+            }
+          },
+          "confusion_matrix": [
+            [
+              227,
+              62,
+              9,
+              2
+            ],
+            [
+              25,
+              210,
+              27,
+              44
+            ],
+            [
+              5,
+              21,
+              273,
+              1
+            ],
+            [
+              7,
+              17,
+              4,
+              377
+            ]
+          ],
+          "roc_auc_macro_ovr": 0.9531142555635161,
+          "loss": 0.484260038052871,
+          "most_confused": {
+            "true": "Glioma",
+            "predicted": "Meningioma",
+            "count": 62
+          },
+          "inference_ms_single": 2.8184170369058847,
+          "inference_ms_batched": 1.1439682499517656
+        },
+        "split_counts": {
+          "train": {
+            "Glioma": 1123,
+            "Meningioma": 1138,
+            "Pituitary tumor": 1238,
+            "No tumor": 1356
+          },
+          "val": {
+            "Glioma": 198,
+            "Meningioma": 201,
+            "Pituitary tumor": 219,
+            "No tumor": 239
+          },
+          "test": {
+            "Glioma": 300,
+            "Meningioma": 306,
+            "Pituitary tumor": 300,
+            "No tumor": 405
+          }
+        }
+      }
+    ]
+  },
+  "brain_binary": {
+    "selected": "finetune",
+    "runs": [
+      {
+        "task": "brain_binary",
+        "config": "finetune",
+        "hyperparameters": {
+          "configuration": "finetune",
+          "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+          "input_size": 224,
+          "batch_size": 32,
+          "max_epochs": 8,
+          "early_stopping_patience": 3,
+          "early_stopping_min_delta_macro_f1": 0.001,
+          "learning_rate": 0.0001,
+          "weight_decay": 0.0001,
+          "dropout": 0.3,
+          "optimizer": "AdamW",
+          "scheduler": "cosine decay from the initial learning rate to 1e-6",
+          "loss": "class-weighted cross-entropy (weights average to 1)",
+          "activation": "ReLU",
+          "output": "linear logits; softmax is applied only to report scores",
+          "seed": 42,
+          "selection_metric": "validation macro-F1",
+          "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+          "normalization": "ImageNet mean and standard deviation"
+        },
+        "total_params": 11177538,
+        "trainable_params": 11177538,
+        "best_epoch": 5,
+        "epochs_ran": 8,
+        "training_seconds": 322.25496129202656,
+        "best_val": {
+          "loss": 0.016853681946385358,
+          "accuracy": 0.9976662777129521,
+          "macro_f1": 0.9970988883021219,
+          "precision_macro": 0.9970988883021219,
+          "recall_macro": 0.9970988883021219
+        },
+        "history": {
+          "epoch": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "lr": [
+            0.0001,
+            9.623203685930869e-05,
+            8.55017856687341e-05,
+            6.944282990207195e-05,
+            5.05e-05,
+            3.1557170097928055e-05,
+            1.54982143312659e-05,
+            4.767963140691306e-06
+          ],
+          "train_loss": [
+            0.10391189175841123,
+            0.03545535338714519,
+            0.02569562256696848,
+            0.009020808835472648,
+            0.008528039123369986,
+            0.006373338505421489,
+            0.003487333438817069,
+            0.0029309615572009535
+          ],
+          "train_acc": [
+            0.9606591143151391,
+            0.9894953656024716,
+            0.9907312049433573,
+            0.9977342945417096,
+            0.9979402677651905,
+            0.9979402677651905,
+            0.9991761071060762,
+            0.9993820803295571
+          ],
+          "val_loss": [
+            0.04007158532973418,
+            0.036487589750950775,
+            0.024069642630509508,
+            0.020278419961150606,
+            0.016853681946385358,
+            0.01837984024101959,
+            0.016372541281666816,
+            0.015728889921603817
+          ],
+          "val_acc": [
+            0.9918319719953326,
+            0.9918319719953326,
+            0.9929988331388565,
+            0.9964994165694282,
+            0.9976662777129521,
+            0.9964994165694282,
+            0.9964994165694282,
+            0.9964994165694282
+          ],
+          "val_f1": [
+            0.9898330477638297,
+            0.9898067201903062,
+            0.991362628502318,
+            0.9956539010928639,
+            0.9970988883021219,
+            0.9956427347559271,
+            0.9956427347559271,
+            0.9956427347559271
+          ]
+        },
+        "test": {
+          "accuracy": 0.9969488939740656,
+          "precision_macro": 0.9964271114381489,
+          "recall_macro": 0.9964271114381489,
+          "f1_macro": 0.9964271114381489,
+          "precision_weighted": 0.9969488939740656,
+          "recall_weighted": 0.9969488939740656,
+          "f1_weighted": 0.9969488939740656,
+          "per_class": {
+            "Tumor detected": {
+              "precision": 0.9977924944812362,
+              "recall": 0.9977924944812362,
+              "f1": 0.9977924944812362,
+              "support": 906
+            },
+            "No tumor detected": {
+              "precision": 0.9950617283950617,
+              "recall": 0.9950617283950617,
+              "f1": 0.9950617283950617,
+              "support": 405
+            }
+          },
+          "confusion_matrix": [
+            [
+              904,
+              2
+            ],
+            [
+              2,
+              403
+            ]
+          ],
+          "roc_auc_macro_ovr": 0.9995121685335078,
+          "loss": 0.0196028265502661,
+          "most_confused": {
+            "true": "Tumor detected",
+            "predicted": "No tumor detected",
+            "count": 2
+          },
+          "inference_ms_single": 3.0916669638827443,
+          "inference_ms_batched": 1.2471003693753668
+        },
+        "split_counts": {
+          "train": {
+            "Tumor detected": 3499,
+            "No tumor detected": 1356
+          },
+          "val": {
+            "Tumor detected": 618,
+            "No tumor detected": 239
+          },
+          "test": {
+            "Tumor detected": 906,
+            "No tumor detected": 405
+          }
+        }
+      }
+    ]
+  },
+  "breast": {
+    "selected": "finetune",
+    "runs": [
+      {
+        "task": "breast",
+        "config": "finetune",
+        "hyperparameters": {
+          "configuration": "finetune",
+          "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+          "input_size": 224,
+          "batch_size": 32,
+          "max_epochs": 8,
+          "early_stopping_patience": 3,
+          "early_stopping_min_delta_macro_f1": 0.001,
+          "learning_rate": 0.0001,
+          "weight_decay": 0.0001,
+          "dropout": 0.3,
+          "optimizer": "AdamW",
+          "scheduler": "cosine decay from the initial learning rate to 1e-6",
+          "loss": "class-weighted cross-entropy (weights average to 1)",
+          "activation": "ReLU",
+          "output": "linear logits; softmax is applied only to report scores",
+          "seed": 42,
+          "selection_metric": "validation macro-F1",
+          "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+          "normalization": "ImageNet mean and standard deviation"
+        },
+        "total_params": 11180616,
+        "trainable_params": 11180616,
+        "best_epoch": 5,
+        "epochs_ran": 8,
+        "training_seconds": 648.6943783749593,
+        "best_val": {
+          "loss": 4.202362749408704,
+          "accuracy": 0.4174410293066476,
+          "macro_f1": 0.27397544155267667,
+          "precision_macro": 0.27379439338086575,
+          "recall_macro": 0.2899343106528146
+        },
+        "history": {
+          "epoch": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "lr": [
+            0.0001,
+            9.623203685930869e-05,
+            8.55017856687341e-05,
+            6.944282990207195e-05,
+            5.05e-05,
+            3.1557170097928055e-05,
+            1.54982143312659e-05,
+            4.767963140691306e-06
+          ],
+          "train_loss": [
+            1.1441247957155016,
+            0.5344630134206362,
+            0.38807626351153807,
+            0.2999005459478245,
+            0.20917306672321007,
+            0.1891782627711228,
+            0.14842251484935345,
+            0.1334293352156464
+          ],
+          "train_acc": [
+            0.5097526643876935,
+            0.743414437965011,
+            0.8091695153830686,
+            0.849788859843153,
+            0.8910114618942289,
+            0.9087070178966419,
+            0.9193645686708224,
+            0.9310275487633219
+          ],
+          "val_loss": [
+            3.193819340763133,
+            3.739988035095684,
+            4.213098296444275,
+            4.168564671699791,
+            4.202362749408704,
+            4.3884023279697235,
+            4.459078902726177,
+            4.424001445806052
+          ],
+          "val_acc": [
+            0.3330950679056469,
+            0.38098641887062185,
+            0.30879199428162973,
+            0.38384560400285916,
+            0.4174410293066476,
+            0.41100786275911366,
+            0.411722659042173,
+            0.41815582558970693
+          ],
+          "val_f1": [
+            0.2534768538124476,
+            0.25565674846109576,
+            0.22306752160221746,
+            0.27192253202705774,
+            0.27397544155267667,
+            0.272647649933404,
+            0.26405328361442215,
+            0.2717134174125082
+          ]
+        },
+        "test": {
+          "accuracy": 0.6031229668184775,
+          "precision_macro": 0.5032953304191993,
+          "recall_macro": 0.6221214224693654,
+          "f1_macro": 0.543297996239305,
+          "precision_weighted": 0.5639203212613072,
+          "recall_weighted": 0.6031229668184775,
+          "f1_weighted": 0.5726073443799833,
+          "per_class": {
+            "Adenosis": {
+              "precision": 0.7861635220125787,
+              "recall": 0.946969696969697,
+              "f1": 0.8591065292096219,
+              "support": 132
+            },
+            "Fibroadenoma": {
+              "precision": 0.5285285285285285,
+              "recall": 0.7125506072874493,
+              "f1": 0.6068965517241379,
+              "support": 247
+            },
+            "Phyllodes tumor": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "support": 235
+            },
+            "Tubular adenoma": {
+              "precision": 0.9180327868852459,
+              "recall": 0.8615384615384616,
+              "f1": 0.8888888888888888,
+              "support": 65
+            },
+            "Ductal carcinoma": {
+              "precision": 0.8250497017892644,
+              "recall": 0.7118353344768439,
+              "f1": 0.7642725598526704,
+              "support": 583
+            },
+            "Lobular carcinoma": {
+              "precision": 0.38461538461538464,
+              "recall": 0.4878048780487805,
+              "f1": 0.43010752688172044,
+              "support": 123
+            },
+            "Mucinous carcinoma": {
+              "precision": 0.2898550724637681,
+              "recall": 0.6451612903225806,
+              "f1": 0.4,
+              "support": 62
+            },
+            "Papillary carcinoma": {
+              "precision": 0.29411764705882354,
+              "recall": 0.6111111111111112,
+              "f1": 0.3971119133574007,
+              "support": 90
+            }
+          },
+          "confusion_matrix": [
+            [
+              125,
+              1,
+              0,
+              0,
+              0,
+              2,
+              4,
+              0
+            ],
+            [
+              24,
+              176,
+              0,
+              1,
+              1,
+              1,
+              0,
+              44
+            ],
+            [
+              5,
+              140,
+              0,
+              1,
+              32,
+              2,
+              1,
+              54
+            ],
+            [
+              0,
+              4,
+              0,
+              56,
+              0,
+              0,
+              3,
+              2
+            ],
+            [
+              1,
+              3,
+              0,
+              2,
+              415,
+              91,
+              59,
+              12
+            ],
+            [
+              0,
+              1,
+              0,
+              0,
+              50,
+              60,
+              9,
+              3
+            ],
+            [
+              0,
+              0,
+              0,
+              1,
+              4,
+              0,
+              40,
+              17
+            ],
+            [
+              4,
+              8,
+              0,
+              0,
+              1,
+              0,
+              22,
+              55
+            ]
+          ],
+          "roc_auc_macro_ovr": 0.8531278044411056,
+          "loss": 2.457725890363744,
+          "most_confused": {
+            "true": "Phyllodes tumor",
+            "predicted": "Fibroadenoma",
+            "count": 140
+          },
+          "inference_ms_single": 2.878249972127378,
+          "inference_ms_batched": 1.3525518301659898
+        },
+        "split_counts": {
+          "train": {
+            "Adenosis": 251,
+            "Fibroadenoma": 557,
+            "Phyllodes tumor": 60,
+            "Tubular adenoma": 372,
+            "Ductal carcinoma": 2350,
+            "Lobular carcinoma": 429,
+            "Mucinous carcinoma": 611,
+            "Papillary carcinoma": 343
+          },
+          "val": {
+            "Adenosis": 61,
+            "Fibroadenoma": 210,
+            "Phyllodes tumor": 158,
+            "Tubular adenoma": 132,
+            "Ductal carcinoma": 518,
+            "Lobular carcinoma": 74,
+            "Mucinous carcinoma": 119,
+            "Papillary carcinoma": 127
+          },
+          "test": {
+            "Adenosis": 132,
+            "Fibroadenoma": 247,
+            "Phyllodes tumor": 235,
+            "Tubular adenoma": 65,
+            "Ductal carcinoma": 583,
+            "Lobular carcinoma": 123,
+            "Mucinous carcinoma": 62,
+            "Papillary carcinoma": 90
+          }
+        }
+      }
+    ]
+  },
+  "breast_binary": {
+    "selected": "finetune",
+    "runs": [
+      {
+        "task": "breast_binary",
+        "config": "finetune",
+        "hyperparameters": {
+          "configuration": "finetune",
+          "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+          "input_size": 224,
+          "batch_size": 32,
+          "max_epochs": 8,
+          "early_stopping_patience": 3,
+          "early_stopping_min_delta_macro_f1": 0.001,
+          "learning_rate": 0.0001,
+          "weight_decay": 0.0001,
+          "dropout": 0.3,
+          "optimizer": "AdamW",
+          "scheduler": "cosine decay from the initial learning rate to 1e-6",
+          "loss": "class-weighted cross-entropy (weights average to 1)",
+          "activation": "ReLU",
+          "output": "linear logits; softmax is applied only to report scores",
+          "seed": 42,
+          "selection_metric": "validation macro-F1",
+          "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+          "normalization": "ImageNet mean and standard deviation"
+        },
+        "total_params": 11177538,
+        "trainable_params": 11177538,
+        "best_epoch": 6,
+        "epochs_ran": 8,
+        "training_seconds": 650.4938734170282,
+        "best_val": {
+          "loss": 0.40125588328844525,
+          "accuracy": 0.9206576125804146,
+          "macro_f1": 0.9167796089704324,
+          "precision_macro": 0.920490608948306,
+          "recall_macro": 0.9137376148116005
+        },
+        "history": {
+          "epoch": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "lr": [
+            0.0001,
+            9.623203685930869e-05,
+            8.55017856687341e-05,
+            6.944282990207195e-05,
+            5.05e-05,
+            3.1557170097928055e-05,
+            1.54982143312659e-05,
+            4.767963140691306e-06
+          ],
+          "train_loss": [
+            0.336644220858267,
+            0.1606158591685534,
+            0.11770730118815768,
+            0.09160246581839959,
+            0.06200977887830192,
+            0.044541169339991325,
+            0.03049136142598691,
+            0.032781562742640644
+          ],
+          "train_acc": [
+            0.8469736577518601,
+            0.9358536094912527,
+            0.9565654534486225,
+            0.9650110597225016,
+            0.976674039815001,
+            0.9829077015885783,
+            0.9913533078624572,
+            0.9889402774984919
+          ],
+          "val_loss": [
+            0.45437887179438263,
+            0.5609938477858613,
+            0.3637673794899162,
+            0.39522260040533413,
+            0.45738408996009955,
+            0.40125588328844525,
+            0.43865840708034903,
+            0.46029942950476466
+          ],
+          "val_acc": [
+            0.8899213724088635,
+            0.8720514653323803,
+            0.8870621872766261,
+            0.90421729807005,
+            0.9035025017869907,
+            0.9206576125804146,
+            0.9142244460328807,
+            0.9149392423159399
+          ],
+          "val_f1": [
+            0.8864385802898624,
+            0.8624287961166862,
+            0.8801051402883004,
+            0.9001906039696737,
+            0.8984518702244313,
+            0.9167796089704324,
+            0.909704652243507,
+            0.9107817429502834
+          ]
+        },
+        "test": {
+          "accuracy": 0.9180221210149642,
+          "precision_macro": 0.9187287354569581,
+          "recall_macro": 0.9148978169596726,
+          "f1_macro": 0.9165373754925994,
+          "precision_weighted": 0.9181811857378372,
+          "recall_weighted": 0.9180221210149642,
+          "f1_weighted": 0.9178338118267618,
+          "per_class": {
+            "Benign": {
+              "precision": 0.9234303215926493,
+              "recall": 0.8880706921944035,
+              "f1": 0.9054054054054054,
+              "support": 679
+            },
+            "Malignant": {
+              "precision": 0.9140271493212669,
+              "recall": 0.9417249417249417,
+              "f1": 0.9276693455797933,
+              "support": 858
+            }
+          },
+          "confusion_matrix": [
+            [
+              603,
+              76
+            ],
+            [
+              50,
+              808
+            ]
+          ],
+          "roc_auc_macro_ovr": 0.9699389957121916,
+          "loss": 0.2419529749836746,
+          "most_confused": {
+            "true": "Benign",
+            "predicted": "Malignant",
+            "count": 76
+          },
+          "inference_ms_single": 2.7627090457826853,
+          "inference_ms_batched": 1.3316324547693017
+        },
+        "split_counts": {
+          "train": {
+            "Benign": 1240,
+            "Malignant": 3733
+          },
+          "val": {
+            "Benign": 561,
+            "Malignant": 838
+          },
+          "test": {
+            "Benign": 679,
+            "Malignant": 858
+          }
+        }
+      }
+    ]
+  },
+  "skin": {
+    "selected": "finetune",
+    "runs": [
+      {
+        "task": "skin",
+        "config": "finetune",
+        "hyperparameters": {
+          "configuration": "finetune",
+          "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+          "input_size": 224,
+          "batch_size": 32,
+          "max_epochs": 8,
+          "early_stopping_patience": 3,
+          "early_stopping_min_delta_macro_f1": 0.001,
+          "learning_rate": 0.0001,
+          "weight_decay": 0.0001,
+          "dropout": 0.3,
+          "optimizer": "AdamW",
+          "scheduler": "cosine decay from the initial learning rate to 1e-6",
+          "loss": "class-weighted cross-entropy (weights average to 1)",
+          "activation": "ReLU",
+          "output": "linear logits; softmax is applied only to report scores",
+          "seed": 42,
+          "selection_metric": "validation macro-F1",
+          "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+          "normalization": "ImageNet mean and standard deviation"
+        },
+        "total_params": 11180103,
+        "trainable_params": 11180103,
+        "best_epoch": 6,
+        "epochs_ran": 8,
+        "training_seconds": 448.59886045905296,
+        "best_val": {
+          "loss": 0.7084089723208609,
+          "accuracy": 0.7926221335992024,
+          "macro_f1": 0.7165889052830562,
+          "precision_macro": 0.6894293310419355,
+          "recall_macro": 0.7574536145964716
+        },
+        "history": {
+          "epoch": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "lr": [
+            0.0001,
+            9.623203685930869e-05,
+            8.55017856687341e-05,
+            6.944282990207195e-05,
+            5.05e-05,
+            3.1557170097928055e-05,
+            1.54982143312659e-05,
+            4.767963140691306e-06
+          ],
+          "train_loss": [
+            1.2600583457582701,
+            0.8701830141568501,
+            0.6844242360021277,
+            0.5694108652595584,
+            0.4460780383479124,
+            0.3603428880762098,
+            0.3334323351178544,
+            0.2836420407976763
+          ],
+          "train_acc": [
+            0.5264735264735265,
+            0.6761809618952476,
+            0.7055801341515627,
+            0.7456828885400314,
+            0.7725132010846296,
+            0.798772655915513,
+            0.8193235336092479,
+            0.8315969744541173
+          ],
+          "val_loss": [
+            0.9219670810347659,
+            0.8056751559762394,
+            0.8159803483683471,
+            0.6872508907365656,
+            0.8490697374847808,
+            0.7084089723208609,
+            0.8095139368462301,
+            0.7870641165930158
+          ],
+          "val_acc": [
+            0.6141575274177468,
+            0.6600199401794616,
+            0.748753738783649,
+            0.7108673978065803,
+            0.7387836490528414,
+            0.7926221335992024,
+            0.7886340977068793,
+            0.7876370887337986
+          ],
+          "val_f1": [
+            0.45020511045651374,
+            0.5352663815339248,
+            0.6661927049082988,
+            0.6313904919840159,
+            0.6545218433274552,
+            0.7165889052830562,
+            0.7053603765123445,
+            0.7146395159723504
+          ]
+        },
+        "test": {
+          "accuracy": 0.7940149625935162,
+          "precision_macro": 0.6712050620338693,
+          "recall_macro": 0.7570105570585761,
+          "f1_macro": 0.7077769906844368,
+          "precision_weighted": 0.8279184070373229,
+          "recall_weighted": 0.7940149625935162,
+          "f1_weighted": 0.8051566303130393,
+          "per_class": {
+            "actinic keratoses and intraepithelial carcinoma": {
+              "precision": 0.6086956521739131,
+              "recall": 0.6363636363636364,
+              "f1": 0.6222222222222222,
+              "support": 66
+            },
+            "basal cell carcinoma": {
+              "precision": 0.6821705426356589,
+              "recall": 0.8543689320388349,
+              "f1": 0.7586206896551724,
+              "support": 103
+            },
+            "benign keratosis-like lesions": {
+              "precision": 0.5893536121673004,
+              "recall": 0.7045454545454546,
+              "f1": 0.6418219461697723,
+              "support": 220
+            },
+            "dermatofibroma": {
+              "precision": 0.64,
+              "recall": 0.6956521739130435,
+              "f1": 0.6666666666666666,
+              "support": 23
+            },
+            "melanoma": {
+              "precision": 0.4840764331210191,
+              "recall": 0.6816143497757847,
+              "f1": 0.5661080074487895,
+              "support": 223
+            },
+            "melanocytic nevi": {
+              "precision": 0.9512820512820512,
+              "recall": 0.8299776286353467,
+              "f1": 0.8864994026284349,
+              "support": 1341
+            },
+            "vascular lesions": {
+              "precision": 0.7428571428571429,
+              "recall": 0.896551724137931,
+              "f1": 0.8125,
+              "support": 29
+            }
+          },
+          "confusion_matrix": [
+            [
+              42,
+              10,
+              7,
+              0,
+              6,
+              1,
+              0
+            ],
+            [
+              2,
+              88,
+              6,
+              0,
+              4,
+              2,
+              1
+            ],
+            [
+              14,
+              5,
+              155,
+              3,
+              32,
+              11,
+              0
+            ],
+            [
+              0,
+              3,
+              2,
+              16,
+              0,
+              2,
+              0
+            ],
+            [
+              7,
+              9,
+              13,
+              1,
+              152,
+              38,
+              3
+            ],
+            [
+              4,
+              14,
+              80,
+              5,
+              120,
+              1113,
+              5
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              26
+            ]
+          ],
+          "roc_auc_macro_ovr": 0.9638088205697868,
+          "loss": 0.6688862530073323,
+          "most_confused": {
+            "true": "melanocytic nevi",
+            "predicted": "melanoma",
+            "count": 120
+          },
+          "inference_ms_single": 4.148084088228643,
+          "inference_ms_batched": 1.1534541373854117
+        },
+        "split_counts": {
+          "train": {
+            "actinic keratoses and intraepithelial carcinoma": 228,
+            "basal cell carcinoma": 359,
+            "benign keratosis-like lesions": 769,
+            "dermatofibroma": 80,
+            "melanoma": 779,
+            "melanocytic nevi": 4693,
+            "vascular lesions": 99
+          },
+          "val": {
+            "actinic keratoses and intraepithelial carcinoma": 33,
+            "basal cell carcinoma": 52,
+            "benign keratosis-like lesions": 110,
+            "dermatofibroma": 12,
+            "melanoma": 111,
+            "melanocytic nevi": 671,
+            "vascular lesions": 14
+          },
+          "test": {
+            "actinic keratoses and intraepithelial carcinoma": 66,
+            "basal cell carcinoma": 103,
+            "benign keratosis-like lesions": 220,
+            "dermatofibroma": 23,
+            "melanoma": 223,
+            "melanocytic nevi": 1341,
+            "vascular lesions": 29
+          }
+        }
+      },
+      {
+        "task": "skin",
+        "config": "frozen",
+        "hyperparameters": {
+          "configuration": "frozen",
+          "architecture": "ResNet18 pretrained on ImageNet; convolutional backbone frozen; new dropout + linear head trained",
+          "input_size": 224,
+          "batch_size": 32,
+          "max_epochs": 6,
+          "early_stopping_patience": 3,
+          "early_stopping_min_delta_macro_f1": 0.001,
+          "learning_rate": 0.001,
+          "weight_decay": 0.0001,
+          "dropout": 0.3,
+          "optimizer": "AdamW",
+          "scheduler": "cosine decay from the initial learning rate to 1e-6",
+          "loss": "class-weighted cross-entropy (weights average to 1)",
+          "activation": "ReLU",
+          "output": "linear logits; softmax is applied only to report scores",
+          "seed": 42,
+          "selection_metric": "validation macro-F1",
+          "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+          "normalization": "ImageNet mean and standard deviation"
+        },
+        "total_params": 11180103,
+        "trainable_params": 3591,
+        "best_epoch": 2,
+        "epochs_ran": 5,
+        "training_seconds": 141.58204908308107,
+        "best_val": {
+          "loss": 1.4323193660880609,
+          "accuracy": 0.6191425722831505,
+          "macro_f1": 0.3442656261440347,
+          "precision_macro": 0.3514605041845464,
+          "recall_macro": 0.45489100114392855
+        },
+        "history": {
+          "epoch": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "lr": [
+            0.001,
+            0.0009330796891903273,
+            0.0007502500000000002,
+            0.0005005000000000001,
+            0.00025075000000000016
+          ],
+          "train_loss": [
+            1.8106660322301207,
+            1.5515385520633453,
+            1.4421673159771475,
+            1.4303983764674297,
+            1.364654012952668
+          ],
+          "train_acc": [
+            0.40516626230911945,
+            0.5039246467817896,
+            0.5367489653203938,
+            0.5508776937348366,
+            0.5557299843014128
+          ],
+          "val_loss": [
+            1.5852201099053456,
+            1.4323193660880609,
+            1.4579581446566825,
+            1.4061087929715188,
+            1.409301528664434
+          ],
+          "val_acc": [
+            0.5274177467597209,
+            0.6191425722831505,
+            0.47756729810568294,
+            0.5274177467597209,
+            0.5154536390827518
+          ],
+          "val_f1": [
+            0.26623848386339005,
+            0.3442656261440347,
+            0.28748394841093383,
+            0.31619484041858475,
+            0.32565292557773035
+          ]
+        },
+        "test": {
+          "accuracy": 0.5975062344139651,
+          "precision_macro": 0.37434734312884066,
+          "recall_macro": 0.4619634329845291,
+          "f1_macro": 0.3456665927058298,
+          "precision_weighted": 0.7436054639053428,
+          "recall_weighted": 0.5975062344139651,
+          "f1_weighted": 0.642983682217509,
+          "per_class": {
+            "actinic keratoses and intraepithelial carcinoma": {
+              "precision": 0.4666666666666667,
+              "recall": 0.10606060606060606,
+              "f1": 0.1728395061728395,
+              "support": 66
+            },
+            "basal cell carcinoma": {
+              "precision": 0.22939068100358423,
+              "recall": 0.6213592233009708,
+              "f1": 0.33507853403141363,
+              "support": 103
+            },
+            "benign keratosis-like lesions": {
+              "precision": 0.43783783783783786,
+              "recall": 0.36818181818181817,
+              "f1": 0.4,
+              "support": 220
+            },
+            "dermatofibroma": {
+              "precision": 0.07407407407407407,
+              "recall": 0.17391304347826086,
+              "f1": 0.1038961038961039,
+              "support": 23
+            },
+            "melanoma": {
+              "precision": 0.35714285714285715,
+              "recall": 0.49327354260089684,
+              "f1": 0.4143126177024482,
+              "support": 223
+            },
+            "melanocytic nevi": {
+              "precision": 0.9361483007209063,
+              "recall": 0.6778523489932886,
+              "f1": 0.7863321799307958,
+              "support": 1341
+            },
+            "vascular lesions": {
+              "precision": 0.11917098445595854,
+              "recall": 0.7931034482758621,
+              "f1": 0.2072072072072072,
+              "support": 29
+            }
+          },
+          "confusion_matrix": [
+            [
+              7,
+              36,
+              5,
+              4,
+              10,
+              0,
+              4
+            ],
+            [
+              0,
+              64,
+              8,
+              6,
+              10,
+              3,
+              12
+            ],
+            [
+              3,
+              60,
+              81,
+              7,
+              40,
+              12,
+              17
+            ],
+            [
+              0,
+              3,
+              1,
+              4,
+              7,
+              6,
+              2
+            ],
+            [
+              0,
+              28,
+              22,
+              6,
+              110,
+              37,
+              20
+            ],
+            [
+              5,
+              86,
+              68,
+              27,
+              131,
+              909,
+              115
+            ],
+            [
+              0,
+              2,
+              0,
+              0,
+              0,
+              4,
+              23
+            ]
+          ],
+          "roc_auc_macro_ovr": 0.8582612446737563,
+          "loss": 1.3908127458910098,
+          "most_confused": {
+            "true": "melanocytic nevi",
+            "predicted": "melanoma",
+            "count": 131
+          },
+          "inference_ms_single": 3.568125073798001,
+          "inference_ms_batched": 1.2353871162850736
+        },
+        "split_counts": {
+          "train": {
+            "actinic keratoses and intraepithelial carcinoma": 228,
+            "basal cell carcinoma": 359,
+            "benign keratosis-like lesions": 769,
+            "dermatofibroma": 80,
+            "melanoma": 779,
+            "melanocytic nevi": 4693,
+            "vascular lesions": 99
+          },
+          "val": {
+            "actinic keratoses and intraepithelial carcinoma": 33,
+            "basal cell carcinoma": 52,
+            "benign keratosis-like lesions": 110,
+            "dermatofibroma": 12,
+            "melanoma": 111,
+            "melanocytic nevi": 671,
+            "vascular lesions": 14
+          },
+          "test": {
+            "actinic keratoses and intraepithelial carcinoma": 66,
+            "basal cell carcinoma": 103,
+            "benign keratosis-like lesions": 220,
+            "dermatofibroma": 23,
+            "melanoma": 223,
+            "melanocytic nevi": 1341,
+            "vascular lesions": 29
+          }
+        }
+      }
+    ]
+  },
+  "skin_binary": {
+    "selected": "finetune",
+    "runs": [
+      {
+        "task": "skin_binary",
+        "config": "finetune",
+        "hyperparameters": {
+          "configuration": "finetune",
+          "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+          "input_size": 224,
+          "batch_size": 32,
+          "max_epochs": 8,
+          "early_stopping_patience": 3,
+          "early_stopping_min_delta_macro_f1": 0.001,
+          "learning_rate": 0.0001,
+          "weight_decay": 0.0001,
+          "dropout": 0.3,
+          "optimizer": "AdamW",
+          "scheduler": "cosine decay from the initial learning rate to 1e-6",
+          "loss": "class-weighted cross-entropy (weights average to 1)",
+          "activation": "ReLU",
+          "output": "linear logits; softmax is applied only to report scores",
+          "seed": 42,
+          "selection_metric": "validation macro-F1",
+          "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+          "normalization": "ImageNet mean and standard deviation"
+        },
+        "total_params": 11177538,
+        "trainable_params": 11177538,
+        "best_epoch": 6,
+        "epochs_ran": 8,
+        "training_seconds": 393.7843425839674,
+        "best_val": {
+          "loss": 0.3362764266885052,
+          "accuracy": 0.8873379860418744,
+          "macro_f1": 0.8324708476896175,
+          "precision_macro": 0.8143804693160916,
+          "recall_macro": 0.856592823002807
+        },
+        "history": {
+          "epoch": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "lr": [
+            0.0001,
+            9.623203685930869e-05,
+            8.55017856687341e-05,
+            6.944282990207195e-05,
+            5.05e-05,
+            3.1557170097928055e-05,
+            1.54982143312659e-05,
+            4.767963140691306e-06
+          ],
+          "train_loss": [
+            0.46003936543960755,
+            0.3810901193726296,
+            0.3431236412771183,
+            0.28914307857037813,
+            0.24925751329761303,
+            0.19824921785594224,
+            0.16658048116949836,
+            0.13966957623580561
+          ],
+          "train_acc": [
+            0.7528186099614671,
+            0.8061938061938062,
+            0.8325959754531184,
+            0.8652775795632939,
+            0.8863993149707435,
+            0.9135150563721992,
+            0.9296417867846439,
+            0.944626801769659
+          ],
+          "val_loss": [
+            0.4025811153953358,
+            0.36698846416482894,
+            0.42001921782346213,
+            0.34866273260544445,
+            0.36459707488804494,
+            0.3362764266885052,
+            0.3856073723714112,
+            0.4010452347643235
+          ],
+          "val_acc": [
+            0.7856430707876371,
+            0.8195413758723828,
+            0.8664007976071785,
+            0.8374875373878365,
+            0.8733798604187437,
+            0.8873379860418744,
+            0.8843469591226321,
+            0.8893320039880359
+          ],
+          "val_f1": [
+            0.7253311323650602,
+            0.7592283870796612,
+            0.7907814445828145,
+            0.7808191079608906,
+            0.81543399042258,
+            0.8324708476896175,
+            0.8195617920373196,
+            0.8270165707227259
+          ]
+        },
+        "test": {
+          "accuracy": 0.8977556109725686,
+          "precision_macro": 0.8293892529194249,
+          "recall_macro": 0.8707978541695662,
+          "f1_macro": 0.8473683409205097,
+          "precision_weighted": 0.9064671136607807,
+          "recall_weighted": 0.8977556109725686,
+          "f1_weighted": 0.9007735985017283,
+          "per_class": {
+            "Cancer-related": {
+              "precision": 0.702819956616052,
+              "recall": 0.826530612244898,
+              "f1": 0.7596717467760844,
+              "support": 392
+            },
+            "Not cancer-related": {
+              "precision": 0.9559585492227979,
+              "recall": 0.9150650960942344,
+              "f1": 0.935064935064935,
+              "support": 1613
+            }
+          },
+          "confusion_matrix": [
+            [
+              324,
+              68
+            ],
+            [
+              137,
+              1476
+            ]
+          ],
+          "roc_auc_macro_ovr": 0.9465266267697408,
+          "loss": 0.3399132530142244,
+          "most_confused": {
+            "true": "Not cancer-related",
+            "predicted": "Cancer-related",
+            "count": 137
+          },
+          "inference_ms_single": 2.9514170018956065,
+          "inference_ms_batched": 1.1877310061664728
+        },
+        "split_counts": {
+          "train": {
+            "Cancer-related": 1366,
+            "Not cancer-related": 5641
+          },
+          "val": {
+            "Cancer-related": 196,
+            "Not cancer-related": 807
+          },
+          "test": {
+            "Cancer-related": 392,
+            "Not cancer-related": 1613
+          }
+        }
+      }
+    ]
+  },
+  "lung": {
+    "selected": "finetune",
+    "runs": [
+      {
+        "task": "lung",
+        "config": "finetune",
+        "hyperparameters": {
+          "configuration": "finetune",
+          "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+          "input_size": 224,
+          "batch_size": 32,
+          "max_epochs": 8,
+          "early_stopping_patience": 3,
+          "early_stopping_min_delta_macro_f1": 0.001,
+          "learning_rate": 0.0001,
+          "weight_decay": 0.0001,
+          "dropout": 0.3,
+          "optimizer": "AdamW",
+          "scheduler": "cosine decay from the initial learning rate to 1e-6",
+          "loss": "class-weighted cross-entropy (weights average to 1)",
+          "activation": "ReLU",
+          "output": "linear logits; softmax is applied only to report scores",
+          "seed": 42,
+          "selection_metric": "validation macro-F1",
+          "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+          "normalization": "ImageNet mean and standard deviation"
+        },
+        "total_params": 11178051,
+        "trainable_params": 11178051,
+        "best_epoch": 6,
+        "epochs_ran": 8,
+        "training_seconds": 62.48692875006236,
+        "best_val": {
+          "loss": 0.23747814252521052,
+          "accuracy": 0.9333333333333333,
+          "macro_f1": 0.8905612905612905,
+          "precision_macro": 0.8783068783068783,
+          "recall_macro": 0.9060846560846562
+        },
+        "history": {
+          "epoch": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "lr": [
+            0.0001,
+            9.623203685930869e-05,
+            8.55017856687341e-05,
+            6.944282990207195e-05,
+            5.05e-05,
+            3.1557170097928055e-05,
+            1.54982143312659e-05,
+            4.767963140691306e-06
+          ],
+          "train_loss": [
+            0.6898403626221877,
+            0.4301699570913203,
+            0.34015885314077254,
+            0.26818181749195286,
+            0.19442625437053274,
+            0.17869693456603775,
+            0.16145913804136947,
+            0.1280953565216593
+          ],
+          "train_acc": [
+            0.6857887874837028,
+            0.8461538461538461,
+            0.8761408083441982,
+            0.9217731421121251,
+            0.9504563233376793,
+            0.9439374185136897,
+            0.9569752281616688,
+            0.9687092568448501
+          ],
+          "val_loss": [
+            0.5182849045955773,
+            0.4450287224668445,
+            0.3750021011540384,
+            0.5560484493772189,
+            0.28770301974180973,
+            0.23747814252521052,
+            0.2418630850586024,
+            0.23237258728706475
+          ],
+          "val_acc": [
+            0.8242424242424242,
+            0.8545454545454545,
+            0.9030303030303031,
+            0.8484848484848485,
+            0.9090909090909091,
+            0.9333333333333333,
+            0.9151515151515152,
+            0.9212121212121213
+          ],
+          "val_f1": [
+            0.7198418811255781,
+            0.7513236075551907,
+            0.8293986577539393,
+            0.747843044245922,
+            0.8623292296504078,
+            0.8905612905612905,
+            0.8666471038946219,
+            0.8746013794346167
+          ]
+        },
+        "test": {
+          "accuracy": 0.9636363636363636,
+          "precision_macro": 0.9317434210526315,
+          "recall_macro": 0.9444444444444445,
+          "f1_macro": 0.9378155311178743,
+          "precision_weighted": 0.9648773923444977,
+          "recall_weighted": 0.9636363636363636,
+          "f1_weighted": 0.9640921479646457,
+          "per_class": {
+            "Normal": {
+              "precision": 0.953125,
+              "recall": 0.9682539682539683,
+              "f1": 0.9606299212598425,
+              "support": 63
+            },
+            "Benign": {
+              "precision": 0.8421052631578947,
+              "recall": 0.8888888888888888,
+              "f1": 0.8648648648648649,
+              "support": 18
+            },
+            "Malignant": {
+              "precision": 1.0,
+              "recall": 0.9761904761904762,
+              "f1": 0.9879518072289156,
+              "support": 84
+            }
+          },
+          "confusion_matrix": [
+            [
+              61,
+              2,
+              0
+            ],
+            [
+              2,
+              16,
+              0
+            ],
+            [
+              1,
+              1,
+              82
+            ]
+          ],
+          "roc_auc_macro_ovr": 0.9945904287640982,
+          "loss": 0.17106701069031702,
+          "most_confused": {
+            "true": "Normal",
+            "predicted": "Benign",
+            "count": 2
+          },
+          "inference_ms_single": 2.8141249204054475,
+          "inference_ms_batched": 1.2212025199198362
+        },
+        "split_counts": {
+          "train": {
+            "Normal": 290,
+            "Benign": 84,
+            "Malignant": 393
+          },
+          "val": {
+            "Normal": 63,
+            "Benign": 18,
+            "Malignant": 84
+          },
+          "test": {
+            "Normal": 63,
+            "Benign": 18,
+            "Malignant": 84
+          }
+        }
+      }
+    ]
+  },
+  "lung_binary": {
+    "selected": "finetune",
+    "runs": [
+      {
+        "task": "lung_binary",
+        "config": "finetune",
+        "hyperparameters": {
+          "configuration": "finetune",
+          "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+          "input_size": 224,
+          "batch_size": 32,
+          "max_epochs": 8,
+          "early_stopping_patience": 3,
+          "early_stopping_min_delta_macro_f1": 0.001,
+          "learning_rate": 0.0001,
+          "weight_decay": 0.0001,
+          "dropout": 0.3,
+          "optimizer": "AdamW",
+          "scheduler": "cosine decay from the initial learning rate to 1e-6",
+          "loss": "class-weighted cross-entropy (weights average to 1)",
+          "activation": "ReLU",
+          "output": "linear logits; softmax is applied only to report scores",
+          "seed": 42,
+          "selection_metric": "validation macro-F1",
+          "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+          "normalization": "ImageNet mean and standard deviation"
+        },
+        "total_params": 11177538,
+        "trainable_params": 11177538,
+        "best_epoch": 3,
+        "epochs_ran": 6,
+        "training_seconds": 46.57065941696055,
+        "best_val": {
+          "loss": 0.033231140605428,
+          "accuracy": 0.9939393939393939,
+          "macro_f1": 0.9939385033613755,
+          "precision_macro": 0.9939024390243902,
+          "recall_macro": 0.9940476190476191
+        },
+        "history": {
+          "epoch": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "lr": [
+            0.0001,
+            9.623203685930869e-05,
+            8.55017856687341e-05,
+            6.944282990207195e-05,
+            5.05e-05,
+            3.1557170097928055e-05
+          ],
+          "train_loss": [
+            0.20966803534089976,
+            0.05846213711112388,
+            0.03153900470404923,
+            0.02597898711611892,
+            0.017211732498310612,
+            0.01708949956741801
+          ],
+          "train_acc": [
+            0.9022164276401564,
+            0.9765319426336375,
+            0.9895697522816167,
+            0.9921773142112125,
+            0.9947848761408083,
+            0.9934810951760105
+          ],
+          "val_loss": [
+            0.06868940501502066,
+            0.04907751751668525,
+            0.033231140605428,
+            0.07154907281439978,
+            0.07302601255730472,
+            0.04383716957756516
+          ],
+          "val_acc": [
+            0.9696969696969697,
+            0.9818181818181818,
+            0.9939393939393939,
+            0.9757575757575757,
+            0.9818181818181818,
+            0.9878787878787879
+          ],
+          "val_f1": [
+            0.969679150281157,
+            0.9818155100841262,
+            0.9939385033613755,
+            0.9757566852776962,
+            0.9818181818181818,
+            0.987878342638848
+          ]
+        },
+        "test": {
+          "accuracy": 0.9939393939393939,
+          "precision_macro": 0.9941176470588236,
+          "recall_macro": 0.9938271604938271,
+          "f1_macro": 0.9939358300562313,
+          "precision_weighted": 0.9940106951871657,
+          "recall_weighted": 0.9939393939393939,
+          "f1_weighted": 0.9939385029686033,
+          "per_class": {
+            "Not malignant": {
+              "precision": 1.0,
+              "recall": 0.9876543209876543,
+              "f1": 0.9937888198757764,
+              "support": 81
+            },
+            "Malignant": {
+              "precision": 0.9882352941176471,
+              "recall": 1.0,
+              "f1": 0.9940828402366864,
+              "support": 84
+            }
+          },
+          "confusion_matrix": [
+            [
+              80,
+              1
+            ],
+            [
+              0,
+              84
+            ]
+          ],
+          "roc_auc_macro_ovr": 1.0,
+          "loss": 0.009243882891976021,
+          "most_confused": {
+            "true": "Not malignant",
+            "predicted": "Malignant",
+            "count": 1
+          },
+          "inference_ms_single": 2.8989589773118496,
+          "inference_ms_batched": 1.2027916611369813
+        },
+        "split_counts": {
+          "train": {
+            "Not malignant": 374,
+            "Malignant": 393
+          },
+          "val": {
+            "Not malignant": 81,
+            "Malignant": 84
+          },
+          "test": {
+            "Not malignant": 81,
+            "Malignant": 84
+          }
+        }
+      }
+    ]
+  }
+}

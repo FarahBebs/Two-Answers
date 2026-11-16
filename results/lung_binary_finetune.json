@@ -1,0 +1,151 @@
+{
+  "task": "lung_binary",
+  "config": "finetune",
+  "hyperparameters": {
+    "configuration": "finetune",
+    "architecture": "ResNet18 pretrained on ImageNet; all layers fine-tuned; new dropout + linear head",
+    "input_size": 224,
+    "batch_size": 32,
+    "max_epochs": 8,
+    "early_stopping_patience": 3,
+    "early_stopping_min_delta_macro_f1": 0.001,
+    "learning_rate": 0.0001,
+    "weight_decay": 0.0001,
+    "dropout": 0.3,
+    "optimizer": "AdamW",
+    "scheduler": "cosine decay from the initial learning rate to 1e-6",
+    "loss": "class-weighted cross-entropy (weights average to 1)",
+    "activation": "ReLU",
+    "output": "linear logits; softmax is applied only to report scores",
+    "seed": 42,
+    "selection_metric": "validation macro-F1",
+    "augmentation": "resize, random resized crop (scale 0.85-1), horizontal flip, rotation \u00b115\u00b0, mild color jitter",
+    "normalization": "ImageNet mean and standard deviation"
+  },
+  "total_params": 11177538,
+  "trainable_params": 11177538,
+  "best_epoch": 3,
+  "epochs_ran": 6,
+  "training_seconds": 46.57065941696055,
+  "best_val": {
+    "loss": 0.033231140605428,
+    "accuracy": 0.9939393939393939,
+    "macro_f1": 0.9939385033613755,
+    "precision_macro": 0.9939024390243902,
+    "recall_macro": 0.9940476190476191
+  },
+  "history": {
+    "epoch": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "lr": [
+      0.0001,
+      9.623203685930869e-05,
+      8.55017856687341e-05,
+      6.944282990207195e-05,
+      5.05e-05,
+      3.1557170097928055e-05
+    ],
+    "train_loss": [
+      0.20966803534089976,
+      0.05846213711112388,
+      0.03153900470404923,
+      0.02597898711611892,
+      0.017211732498310612,
+      0.01708949956741801
+    ],
+    "train_acc": [
+      0.9022164276401564,
+      0.9765319426336375,
+      0.9895697522816167,
+      0.9921773142112125,
+      0.9947848761408083,
+      0.9934810951760105
+    ],
+    "val_loss": [
+      0.06868940501502066,
+      0.04907751751668525,
+      0.033231140605428,
+      0.07154907281439978,
+      0.07302601255730472,
+      0.04383716957756516
+    ],
+    "val_acc": [
+      0.9696969696969697,
+      0.9818181818181818,
+      0.9939393939393939,
+      0.9757575757575757,
+      0.9818181818181818,
+      0.9878787878787879
+    ],
+    "val_f1": [
+      0.969679150281157,
+      0.9818155100841262,
+      0.9939385033613755,
+      0.9757566852776962,
+      0.9818181818181818,
+      0.987878342638848
+    ]
+  },
+  "test": {
+    "accuracy": 0.9939393939393939,
+    "precision_macro": 0.9941176470588236,
+    "recall_macro": 0.9938271604938271,
+    "f1_macro": 0.9939358300562313,
+    "precision_weighted": 0.9940106951871657,
+    "recall_weighted": 0.9939393939393939,
+    "f1_weighted": 0.9939385029686033,
+    "per_class": {
+      "Not malignant": {
+        "precision": 1.0,
+        "recall": 0.9876543209876543,
+        "f1": 0.9937888198757764,
+        "support": 81
+      },
+      "Malignant": {
+        "precision": 0.9882352941176471,
+        "recall": 1.0,
+        "f1": 0.9940828402366864,
+        "support": 84
+      }
+    },
+    "confusion_matrix": [
+      [
+        80,
+        1
+      ],
+      [
+        0,
+        84
+      ]
+    ],
+    "roc_auc_macro_ovr": 1.0,
+    "loss": 0.009243882891976021,
+    "most_confused": {
+      "true": "Not malignant",
+      "predicted": "Malignant",
+      "count": 1
+    },
+    "inference_ms_single": 2.8989589773118496,
+    "inference_ms_batched": 1.2027916611369813
+  },
+  "split_counts": {
+    "train": {
+      "Not malignant": 374,
+      "Malignant": 393
+    },
+    "val": {
+      "Not malignant": 81,
+      "Malignant": 84
+    },
+    "test": {
+      "Not malignant": 81,
+      "Malignant": 84
+    }
+  }
+}
