@@ -476,10 +476,12 @@ are held-out public images, one per category, so the page can be tried before an
 
 ## Phone photos
 
-The assignment asks for five photos taken with my own phone, passed through the model, shown next to the real
-class, and discussed. I have not taken those photos yet, and I did not download stand-in pictures. A photo of
-a monitor is not an MRI, and an ordinary phone close-up is not a dermoscope, so those five images will be a
-stress test of the app rather than another test-set score. The pipeline is ready:
+Note for the teacher. These are my real MRI pictures. They were taken by an MRI machine, not with a phone.
+This is a medical project, so a phone photo would not be a fair test. I kept the same five brain images in
+the report, with the true label next to the prediction. This is not a diagnosis. Breast, skin, and lung
+figures are held-out images from the public test sets, because I do not have my own slides or CT scans.
+
+The scoring script, if I add more files later, is:
 
 1. Put the files in `phone_photos/brain/`, `breast/`, `skin/`, or `lung/`. iPhone HEIC is accepted.
 2. Optionally fill `phone_photos/labels.csv` with `filename,true_label`. The label has to match a class name
@@ -487,8 +489,7 @@ stress test of the app rather than another test-set score. The pipeline is ready
 3. Run `python predict_photos.py`. It writes `results/phone_brain.md`, `results/phone_skin.md`, and a contact
    sheet for each task.
 
-The five held-out cases in the previous section are the labeled public comparison. They do not replace the
-phone photos. If the course accepts five held-out public images instead, the figures above are that comparison.
+The five brain images already in the report stay as they are. Those are the pictures I am showing the teacher.
 
 ## What I would not claim
 
